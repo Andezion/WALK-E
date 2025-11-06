@@ -1,8 +1,9 @@
-// lib/features/community/widgets/filters_sheet.dart
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 
 class FiltersSheet extends StatefulWidget {
+  const FiltersSheet({super.key});
+
   @override
   _FiltersSheetState createState() => _FiltersSheetState();
 }
@@ -42,8 +43,8 @@ class _FiltersSheetState extends State<FiltersSheet> {
               SizedBox(height: 8),
               ElevatedButton(
                   onPressed: () => Navigator.pop(context),
-                  child: Text('Применить'),
-                  style: ElevatedButton.styleFrom(backgroundColor: AppColors.accent)
+                  style: ElevatedButton.styleFrom(backgroundColor: AppColors.accent),
+                  child: Text('Применить')
               )
             ]
         )

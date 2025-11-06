@@ -1,8 +1,9 @@
-// lib/features/community/screens/create_walk_screen.dart
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 
 class CreateWalkScreen extends StatefulWidget {
+  const CreateWalkScreen({super.key});
+
   @override
   _CreateWalkScreenState createState() => _CreateWalkScreenState();
 }
@@ -47,11 +48,11 @@ class _CreateWalkScreenState extends State<CreateWalkScreen> {
               Spacer(),
               ElevatedButton(
                   onPressed: _create,
-                  child: Text('Создать'),
                   style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.accent,
                       minimumSize: Size.fromHeight(48)
-                  )
+                  ),
+                  child: Text('Создать')
               ),
             ]
         ),

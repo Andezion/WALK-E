@@ -1,10 +1,9 @@
-// lib/features/community/screens/draw_route_screen.dart
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 
 class DrawRouteScreen extends StatelessWidget {
   final bool manual;
-  DrawRouteScreen({required this.manual});
+  const DrawRouteScreen({super.key, required this.manual});
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +23,8 @@ class DrawRouteScreen extends StatelessWidget {
               SizedBox(height: 12),
               ElevatedButton(
                   onPressed: () => _simulateDraw(context),
-                  child: Text('Сохранить маршрут'),
-                  style: ElevatedButton.styleFrom(backgroundColor: AppColors.accent)
+                  style: ElevatedButton.styleFrom(backgroundColor: AppColors.accent),
+                  child: Text('Сохранить маршрут')
               ),
             ],
           ) : Column(
@@ -37,8 +36,8 @@ class DrawRouteScreen extends StatelessWidget {
               SizedBox(height: 12),
               ElevatedButton(
                   onPressed: () => _simulateDraw(context),
-                  child: Text('Выбрать шаблон'),
-                  style: ElevatedButton.styleFrom(backgroundColor: AppColors.accent)
+                  style: ElevatedButton.styleFrom(backgroundColor: AppColors.accent),
+                  child: Text('Выбрать шаблон')
               ),
             ],
           ),

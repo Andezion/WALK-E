@@ -1,4 +1,3 @@
-// lib/features/community/screens/community_screen.dart
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 import '../widgets/filters_sheet.dart';
@@ -6,6 +5,8 @@ import 'create_walk_screen.dart';
 import 'draw_route_screen.dart';
 
 class CommunityScreen extends StatelessWidget {
+  const CommunityScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
