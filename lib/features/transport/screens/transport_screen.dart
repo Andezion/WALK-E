@@ -1,12 +1,13 @@
-// lib/features/transport/screens/transport_screen.dart
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 import '../widgets/build_route_card.dart';
 import '../widgets/map_placeholder.dart';
-import 'scooter_detail_screen.dart';
+import '../widgets/scooter_list_item.dart';
 import 'report_problem_screen.dart';
 
 class TransportScreen extends StatelessWidget {
+  const TransportScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
