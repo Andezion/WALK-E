@@ -1,10 +1,9 @@
-// lib/features/transport/screens/scooter_detail_screen.dart
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 
 class ScooterDetailScreen extends StatelessWidget {
   final int index;
-  ScooterDetailScreen({required this.index});
+  const ScooterDetailScreen({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +22,11 @@ class ScooterDetailScreen extends StatelessWidget {
               Spacer(),
               ElevatedButton(
                   onPressed: () => _rent(context),
-                  child: Text('Взять сейчас'),
                   style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.accent,
                       minimumSize: Size.fromHeight(48)
-                  )
+                  ),
+                  child: Text('Взять сейчас')
               ),
             ]
         ),

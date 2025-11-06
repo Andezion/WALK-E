@@ -1,8 +1,9 @@
-// lib/features/transport/widgets/map_placeholder.dart
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 
 class MapPlaceholder extends StatelessWidget {
+  const MapPlaceholder({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
