@@ -1,8 +1,9 @@
-// lib/features/home/widgets/activity_card.dart
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 
 class ActivityCard extends StatelessWidget {
+  const ActivityCard({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Card(

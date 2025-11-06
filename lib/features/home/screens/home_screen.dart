@@ -1,4 +1,3 @@
-// lib/features/home/screens/home_screen.dart
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 import '../widgets/profile_header.dart';
@@ -9,6 +8,8 @@ import '../../rewards/screens/rewards_screen.dart';
 import '../../rewards/screens/leaderboard_screen.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
