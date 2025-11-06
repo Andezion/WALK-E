@@ -1,4 +1,3 @@
-// lib/features/routes/widgets/route_card.dart
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 
@@ -10,7 +9,7 @@ class RouteCard extends StatelessWidget {
   final VoidCallback? onTap;
   final VoidCallback? onShare;
 
-  const RouteCard({
+  const RouteCard({super.key,
     required this.title,
     required this.distance,
     required this.points,

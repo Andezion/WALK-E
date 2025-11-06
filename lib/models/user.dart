@@ -1,5 +1,3 @@
-// lib/models/user.dart
-
 class User {
   final String id;
   final String name;
@@ -27,7 +25,6 @@ class User {
     required this.lastActiveAt,
   });
 
-  // Calculate progress to next level (0.0 to 1.0)
   double get levelProgress {
     final pointsForCurrentLevel = (level - 1) * 1000;
     final pointsForNextLevel = level * 1000;
@@ -36,7 +33,6 @@ class User {
     return pointsInCurrentLevel / pointsNeededForLevel;
   }
 
-  // Points needed to reach next level
   int get pointsToNextLevel {
     final pointsForNextLevel = level * 1000;
     return pointsForNextLevel - ecoPoints;

@@ -1,5 +1,3 @@
-// lib/models/activity.dart
-
 enum ActivityType {
   walking,
   running,

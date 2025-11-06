@@ -1,5 +1,3 @@
-// lib/models/reward.dart
-
 enum RewardType {
   discount,
   subscription,

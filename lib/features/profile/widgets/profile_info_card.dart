@@ -1,4 +1,3 @@
-// lib/features/profile/widgets/profile_info_card.dart
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 
@@ -8,7 +7,7 @@ class ProfileInfoCard extends StatelessWidget {
   final int level;
   final double levelProgress;
 
-  const ProfileInfoCard({
+  const ProfileInfoCard({super.key,
     required this.name,
     required this.ecoPoints,
     required this.level,

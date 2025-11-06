@@ -1,4 +1,3 @@
-// lib/core/theme/app_colors.dart
 import 'package:flutter/material.dart';
 
 /// #231971, #2A2742, #5E4CE6, #FAFAFA

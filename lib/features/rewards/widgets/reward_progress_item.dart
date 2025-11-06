@@ -1,4 +1,3 @@
-// lib/features/rewards/widgets/reward_progress_item.dart
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 
@@ -9,7 +8,7 @@ class RewardProgressItem extends StatelessWidget {
   final int requiredPoints;
   final IconData icon;
 
-  const RewardProgressItem({
+  const RewardProgressItem({super.key,
     required this.title,
     required this.description,
     required this.currentPoints,

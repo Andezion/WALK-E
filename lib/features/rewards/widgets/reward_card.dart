@@ -1,4 +1,3 @@
-// lib/features/rewards/widgets/reward_card.dart
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 
@@ -9,7 +8,7 @@ class RewardCard extends StatelessWidget {
   final VoidCallback onRedeem;
   final bool isAvailable;
 
-  const RewardCard({
+  const RewardCard({super.key,
     required this.title,
     required this.description,
     required this.cost,

@@ -1,5 +1,3 @@
-// lib/models/walk.dart
-
 enum WalkStatus {
   upcoming,
   inProgress,
@@ -22,7 +20,7 @@ class Walk {
   final WalkStatus status;
   final String? meetingPoint;
   final List<String>? tags;
-  final bool isAccessible; // для людей с ограниченными возможностями
+  final bool isAccessible;
   final DateTime createdAt;
 
   Walk({

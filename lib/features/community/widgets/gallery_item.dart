@@ -1,4 +1,3 @@
-// lib/features/community/widgets/gallery_item.dart
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 
@@ -7,7 +6,7 @@ class GalleryItem extends StatelessWidget {
   final String? title;
   final VoidCallback? onTap;
 
-  const GalleryItem({
+  const GalleryItem({super.key,
     required this.index,
     this.title,
     this.onTap,

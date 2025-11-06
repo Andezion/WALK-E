@@ -1,4 +1,3 @@
-// lib/features/transport/widgets/scooter_list_item.dart
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 
@@ -8,7 +7,7 @@ class ScooterListItem extends StatelessWidget {
   final int distanceMeters;
   final VoidCallback onTap;
 
-  const ScooterListItem({
+  const ScooterListItem({super.key,
     required this.index,
     required this.batteryPercent,
     required this.distanceMeters,

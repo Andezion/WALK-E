@@ -1,4 +1,3 @@
-// lib/features/community/widgets/walk_card.dart
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 
@@ -9,7 +8,7 @@ class WalkCard extends StatelessWidget {
   final int participants;
   final VoidCallback onJoin;
 
-  const WalkCard({
+  const WalkCard({super.key,
     required this.title,
     required this.distance,
     required this.time,

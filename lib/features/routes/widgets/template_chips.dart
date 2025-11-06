@@ -1,4 +1,3 @@
-// lib/features/routes/widgets/template_chips.dart
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/constants/app_constants.dart';
@@ -6,7 +5,7 @@ import '../../../core/constants/app_constants.dart';
 class TemplateChips extends StatefulWidget {
   final Function(String) onTemplateSelected;
 
-  const TemplateChips({required this.onTemplateSelected});
+  const TemplateChips({super.key, required this.onTemplateSelected});
 
   @override
   _TemplateChipsState createState() => _TemplateChipsState();
