@@ -1,8 +1,9 @@
-// lib/features/transport/screens/report_problem_screen.dart
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 
 class ReportProblemScreen extends StatefulWidget {
+  const ReportProblemScreen({super.key});
+
   @override
   _ReportProblemScreenState createState() => _ReportProblemScreenState();
 }
@@ -31,11 +32,11 @@ class _ReportProblemScreenState extends State<ReportProblemScreen> {
               Spacer(),
               ElevatedButton(
                   onPressed: _send,
-                  child: Text('Отправить'),
                   style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.accent,
                       minimumSize: Size.fromHeight(48)
-                  )
+                  ),
+                  child: Text('Отправить')
               ),
             ]
         ),

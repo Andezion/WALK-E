@@ -1,7 +1,8 @@
-// lib/features/transport/widgets/build_route_card.dart
 import 'package:flutter/material.dart';
 
 class BuildRouteCard extends StatelessWidget {
+  const BuildRouteCard({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Card(
