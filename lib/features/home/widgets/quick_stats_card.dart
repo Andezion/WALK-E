@@ -1,0 +1,36 @@
+// lib/features/home/widgets/quick_stats_card.dart
+import 'package:flutter/material.dart';
+import '../../../core/theme/app_colors.dart';
+
+class QuickStatsCard extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+      child: Padding(
+        padding: EdgeInsets.all(12),
+        child: Row(
+          children: [
+            _smallStat('Стрик', '5', Icons.local_fire_department),
+            _smallStat('Рекорд', '10 км', Icons.timeline),
+            _smallStat('Награды', '3', Icons.emoji_events),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _smallStat(String title, String value, IconData icon) {
+    return Expanded(
+      child: Column(
+          children: [
+            Icon(icon, color: AppColors.accent),
+            SizedBox(height: 6),
+            Text(value, style: TextStyle(fontWeight: FontWeight.bold)),
+            SizedBox(height: 4),
+            Text(title, style: TextStyle(color: AppColors.dark.withOpacity(0.7))),
+          ]
+      ),
+    );
+  }
+}
