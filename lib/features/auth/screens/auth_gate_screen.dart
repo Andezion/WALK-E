@@ -1,9 +1,10 @@
-// lib/features/auth/screens/auth_gate_screen.dart
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../shared/screens/main_shell.dart';
 
 class AuthGateScreen extends StatefulWidget {
+  const AuthGateScreen({super.key});
+
   @override
   _AuthGateScreenState createState() => _AuthGateScreenState();
 }
