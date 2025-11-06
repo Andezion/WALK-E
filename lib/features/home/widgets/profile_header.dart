@@ -1,9 +1,10 @@
-// lib/features/home/widgets/profile_header.dart
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../profile/screens/profile_screen.dart';
 
 class ProfileHeader extends StatelessWidget {
+  const ProfileHeader({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Card(

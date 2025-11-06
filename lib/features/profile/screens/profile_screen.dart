@@ -1,4 +1,3 @@
-// lib/features/profile/screens/profile_screen.dart
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 import 'settings_screen.dart';
@@ -6,6 +5,8 @@ import 'customization_screen.dart';
 import '../../auth/screens/auth_gate_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

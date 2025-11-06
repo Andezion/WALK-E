@@ -1,8 +1,9 @@
-// lib/features/profile/screens/customization_screen.dart
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 
 class CustomizationScreen extends StatelessWidget {
+  const CustomizationScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
