@@ -1,9 +1,10 @@
-// lib/app.dart
 import 'package:flutter/material.dart';
 import 'core/theme/app_colors.dart';
 import 'features/auth/screens/auth_gate_screen.dart';
 
 class WalkEApp extends StatelessWidget {
+  const WalkEApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
