@@ -1,10 +1,11 @@
-// lib/features/routes/screens/routes_screen.dart
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../community/screens/draw_route_screen.dart';
 import 'competitions_screen.dart';
 
 class RoutesScreen extends StatelessWidget {
+  const RoutesScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,7 +1,8 @@
-// lib/features/routes/screens/competitions_screen.dart
 import 'package:flutter/material.dart';
 
 class CompetitionsScreen extends StatelessWidget {
+  const CompetitionsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

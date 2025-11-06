@@ -1,4 +1,3 @@
-// lib/features/shared/screens/main_shell.dart
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../home/screens/home_screen.dart';
@@ -9,6 +8,8 @@ import '../../profile/screens/profile_screen.dart';
 import '../widgets/start_walk_sheet.dart';
 
 class MainShell extends StatefulWidget {
+  const MainShell({super.key});
+
   @override
   _MainShellState createState() => _MainShellState();
 }

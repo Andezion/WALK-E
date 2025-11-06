@@ -1,8 +1,9 @@
-// lib/features/rewards/screens/rewards_screen.dart
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
 
 class RewardsScreen extends StatelessWidget {
+  const RewardsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
