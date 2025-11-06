@@ -21,8 +21,8 @@ class WalkEApp extends StatelessWidget {
           foregroundColor: AppColors.dark,
         ),
         textTheme: TextTheme(
-          headline6: TextStyle(color: AppColors.dark, fontWeight: FontWeight.w700),
-          bodyText2: TextStyle(color: AppColors.dark),
+          titleLarge: TextStyle(color: AppColors.dark, fontWeight: FontWeight.w700),
+          bodyMedium: TextStyle(color: AppColors.dark),
         ),
         floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: AppColors.accent,
