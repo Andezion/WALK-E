@@ -5,7 +5,6 @@ import '../../community/screens/community_screen.dart';
 import '../../transport/screens/transport_screen.dart';
 import '../../routes/screens/routes_screen.dart';
 import '../../profile/screens/profile_screen.dart';
-import '../widgets/start_walk_sheet.dart';
 
 class MainShell extends StatefulWidget {
   const MainShell({super.key});
@@ -28,30 +27,54 @@ class _MainShellState extends State<MainShell> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: pages[_index],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _index,
-        selectedItemColor: AppColors.accent,
-        unselectedItemColor: AppColors.dark.withOpacity(0.6),
-        backgroundColor: Colors.white,
-        type: BottomNavigationBarType.fixed,
-        onTap: (i) => setState(() => _index = i),
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.group), label: 'Community'),
-          BottomNavigationBarItem(icon: Icon(Icons.directions_transit), label: 'Transport'),
-          BottomNavigationBarItem(icon: Icon(Icons.map), label: 'Routes'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          showModalBottomSheet(
-              context: context,
-              builder: (_) => StartWalkSheet(),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(16))));
-        },
-        label: Text('Начать прогулку'),
-        icon: Icon(Icons.directions_walk),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              blurRadius: 20,
+              offset: Offset(0, -5),
+            ),
+          ],
+          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+          child: BottomNavigationBar(
+            currentIndex: _index,
+            selectedItemColor: AppColors.accent,
+            unselectedItemColor: AppColors.dark.withOpacity(0.4),
+            backgroundColor: Colors.white,
+            type: BottomNavigationBarType.fixed,
+            elevation: 0,
+            selectedFontSize: 12,
+            unselectedFontSize: 11,
+            onTap: (i) => setState(() => _index = i),
+            items: [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home_rounded, size: 26),
+                label: 'Главная',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.group_rounded, size: 26),
+                label: 'Сообщество',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.directions_transit_rounded, size: 26),
+                label: 'Транспорт',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.map_rounded, size: 26),
+                label: 'Маршруты',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person_rounded, size: 26),
+                label: 'Профиль',
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
