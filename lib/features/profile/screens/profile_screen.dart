@@ -21,11 +21,11 @@ class ProfileScreen extends StatelessWidget {
                   padding: EdgeInsets.all(16),
                   children: [
                     _buildProfileHeader(),
-                    SizedBox(height: 24),
+                    SizedBox(height: 20),
                     _buildStatsGrid(),
-                    SizedBox(height: 24),
+                    SizedBox(height: 20),
                     _buildSectionTitle('Настройки', Icons.tune),
-                    SizedBox(height: 12),
+                    SizedBox(height: 10),
                     _buildSettingsCard(
                       context,
                       'Кастомизация',
@@ -45,7 +45,7 @@ class ProfileScreen extends StatelessWidget {
                     _buildSettingsCard(
                       context,
                       'История',
-                      'Eco Points и достижения',
+                      'Eco Points',
                       Icons.history,
                       Colors.green,
                           () {},
@@ -60,9 +60,9 @@ class ProfileScreen extends StatelessWidget {
                           MaterialPageRoute(builder: (_) => SettingsScreen())
                       ),
                     ),
-                    SizedBox(height: 12),
+                    SizedBox(height: 10),
                     _buildLogoutButton(context),
-                    SizedBox(height: 12),
+                    SizedBox(height: 20),
                   ],
                 ),
               ),
@@ -75,7 +75,7 @@ class ProfileScreen extends StatelessWidget {
 
   Widget _buildAppBar(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -88,20 +88,21 @@ class ProfileScreen extends StatelessWidget {
             ),
           ),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            padding: EdgeInsets.symmetric(horizontal: 14, vertical: 7),
             decoration: BoxDecoration(
               color: Colors.amber.withOpacity(0.3),
               borderRadius: BorderRadius.circular(20),
             ),
             child: Row(
               children: [
-                Icon(Icons.star, color: Colors.amber, size: 18),
-                SizedBox(width: 6),
+                Icon(Icons.star, color: Colors.amber, size: 16),
+                SizedBox(width: 5),
                 Text(
                   'Уровень 8',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
+                    fontSize: 13,
                   ),
                 ),
               ],
@@ -114,7 +115,7 @@ class ProfileScreen extends StatelessWidget {
 
   Widget _buildProfileHeader() {
     return Container(
-      padding: EdgeInsets.all(24),
+      padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(24),
@@ -129,7 +130,7 @@ class ProfileScreen extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.all(4),
+            padding: EdgeInsets.all(3),
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [AppColors.accent, AppColors.deep],
@@ -137,27 +138,27 @@ class ProfileScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(50),
             ),
             child: CircleAvatar(
-              radius: 50,
+              radius: 45,
               backgroundColor: Colors.white,
               child: CircleAvatar(
-                radius: 46,
+                radius: 42,
                 backgroundColor: AppColors.accent.withOpacity(0.1),
-                child: Icon(Icons.person, color: AppColors.accent, size: 48),
+                child: Icon(Icons.person, color: AppColors.accent, size: 42),
               ),
             ),
           ),
-          SizedBox(height: 16),
+          SizedBox(height: 14),
           Text(
             'Влад',
             style: TextStyle(
-              fontSize: 24,
+              fontSize: 22,
               fontWeight: FontWeight.bold,
               color: AppColors.dark,
             ),
           ),
           SizedBox(height: 8),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            padding: EdgeInsets.symmetric(horizontal: 14, vertical: 7),
             decoration: BoxDecoration(
               color: Colors.green.withOpacity(0.1),
               borderRadius: BorderRadius.circular(20),
@@ -165,14 +166,14 @@ class ProfileScreen extends StatelessWidget {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(Icons.eco, color: Colors.green, size: 18),
-                SizedBox(width: 6),
+                Icon(Icons.eco, color: Colors.green, size: 16),
+                SizedBox(width: 5),
                 Text(
                   '1,250 Eco Points',
                   style: TextStyle(
                     color: Colors.green,
                     fontWeight: FontWeight.bold,
-                    fontSize: 16,
+                    fontSize: 14,
                   ),
                 ),
               ],
@@ -188,9 +189,9 @@ class ProfileScreen extends StatelessWidget {
       crossAxisCount: 2,
       shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
-      mainAxisSpacing: 12,
-      crossAxisSpacing: 12,
-      childAspectRatio: 1.4,
+      mainAxisSpacing: 10,
+      crossAxisSpacing: 10,
+      childAspectRatio: 1.5,
       children: [
         _buildStatCard('Шаги', '124K', Icons.directions_walk, Colors.blue),
         _buildStatCard('Прогулки', '48', Icons.route, Colors.purple),
@@ -202,15 +203,15 @@ class ProfileScreen extends StatelessWidget {
 
   Widget _buildStatCard(String title, String value, IconData icon, Color color) {
     return Container(
-      padding: EdgeInsets.all(14),
+      padding: EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(18),
         boxShadow: [
           BoxShadow(
             color: color.withOpacity(0.1),
-            blurRadius: 10,
-            offset: Offset(0, 5),
+            blurRadius: 8,
+            offset: Offset(0, 4),
           ),
         ],
       ),
@@ -218,27 +219,27 @@ class ProfileScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.all(8),
             decoration: BoxDecoration(
               color: color.withOpacity(0.1),
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(10),
             ),
-            child: Icon(icon, color: color, size: 24),
+            child: Icon(icon, color: color, size: 22),
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 8),
           Text(
             value,
             style: TextStyle(
-              fontSize: 18,
+              fontSize: 16,
               fontWeight: FontWeight.bold,
               color: AppColors.dark,
             ),
           ),
-          SizedBox(height: 4),
+          SizedBox(height: 3),
           Text(
             title,
             style: TextStyle(
-              fontSize: 11,
+              fontSize: 10,
               color: AppColors.dark.withOpacity(0.6),
             ),
           ),
@@ -253,19 +254,19 @@ class ProfileScreen extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            padding: EdgeInsets.all(8),
+            padding: EdgeInsets.all(7),
             decoration: BoxDecoration(
               color: Colors.white.withOpacity(0.2),
               borderRadius: BorderRadius.circular(10),
             ),
-            child: Icon(icon, color: Colors.white, size: 20),
+            child: Icon(icon, color: Colors.white, size: 18),
           ),
-          SizedBox(width: 12),
+          SizedBox(width: 10),
           Text(
             title,
             style: TextStyle(
               color: Colors.white,
-              fontSize: 20,
+              fontSize: 18,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -283,15 +284,15 @@ class ProfileScreen extends StatelessWidget {
       VoidCallback onTap,
       ) {
     return Container(
-      margin: EdgeInsets.only(bottom: 12),
+      margin: EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(18),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.05),
-            blurRadius: 10,
-            offset: Offset(0, 5),
+            blurRadius: 8,
+            offset: Offset(0, 4),
           ),
         ],
       ),
@@ -299,20 +300,20 @@ class ProfileScreen extends StatelessWidget {
         color: Colors.transparent,
         child: InkWell(
           onTap: onTap,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(18),
           child: Padding(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(14),
             child: Row(
               children: [
                 Container(
-                  padding: EdgeInsets.all(12),
+                  padding: EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: color.withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(14),
+                    borderRadius: BorderRadius.circular(12),
                   ),
-                  child: Icon(icon, color: color, size: 24),
+                  child: Icon(icon, color: color, size: 22),
                 ),
-                SizedBox(width: 16),
+                SizedBox(width: 14),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -321,15 +322,15 @@ class ProfileScreen extends StatelessWidget {
                         title,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 15,
+                          fontSize: 14,
                           color: AppColors.dark,
                         ),
                       ),
-                      SizedBox(height: 3),
+                      SizedBox(height: 2),
                       Text(
                         subtitle,
                         style: TextStyle(
-                          fontSize: 11,
+                          fontSize: 10,
                           color: AppColors.dark.withOpacity(0.6),
                         ),
                         maxLines: 1,
@@ -341,6 +342,7 @@ class ProfileScreen extends StatelessWidget {
                 Icon(
                   Icons.chevron_right,
                   color: AppColors.dark.withOpacity(0.3),
+                  size: 22,
                 ),
               ],
             ),
@@ -354,12 +356,12 @@ class ProfileScreen extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(18),
         boxShadow: [
           BoxShadow(
             color: Colors.red.withOpacity(0.2),
-            blurRadius: 10,
-            offset: Offset(0, 5),
+            blurRadius: 8,
+            offset: Offset(0, 4),
           ),
         ],
       ),
@@ -367,20 +369,20 @@ class ProfileScreen extends StatelessWidget {
         color: Colors.transparent,
         child: InkWell(
           onTap: () => _logout(context),
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(18),
           child: Padding(
-            padding: EdgeInsets.all(18),
+            padding: EdgeInsets.all(16),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.logout, color: Colors.red),
-                SizedBox(width: 12),
+                Icon(Icons.logout, color: Colors.red, size: 22),
+                SizedBox(width: 10),
                 Text(
                   'Выйти из аккаунта',
                   style: TextStyle(
                     color: Colors.red,
                     fontWeight: FontWeight.bold,
-                    fontSize: 16,
+                    fontSize: 15,
                   ),
                 ),
               ],
