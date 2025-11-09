@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
-import '../../rewards/screens/rewards_screen.dart';
 import '../../rewards/screens/leaderboard_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -67,17 +66,16 @@ class HomeScreen extends StatelessWidget {
               ),
             ],
           ),
-          Row(
-            children: [
-              IconButton(
-                onPressed: () => _openRewards(context),
-                icon: Icon(Icons.card_giftcard, color: Colors.white),
+          IconButton(
+            onPressed: () => _openLeaderboard(context),
+            icon: Container(
+              padding: EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.2),
+                borderRadius: BorderRadius.circular(12),
               ),
-              IconButton(
-                onPressed: () => _openLeaderboard(context),
-                icon: Icon(Icons.leaderboard, color: Colors.white),
-              ),
-            ],
+              child: Icon(Icons.leaderboard, color: Colors.white),
+            ),
           ),
         ],
       ),
@@ -661,10 +659,6 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  void _openRewards(BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (_) => RewardsScreen()));
   }
 
   void _openLeaderboard(BuildContext context) {

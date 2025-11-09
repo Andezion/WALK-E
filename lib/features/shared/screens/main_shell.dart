@@ -4,6 +4,7 @@ import '../../home/screens/home_screen.dart';
 import '../../community/screens/community_screen.dart';
 import '../../transport/screens/transport_screen.dart';
 import '../../routes/screens/routes_screen.dart';
+import '../../rewards/screens/rewards_screen.dart';
 import '../../profile/screens/profile_screen.dart';
 
 class MainShell extends StatefulWidget {
@@ -20,6 +21,7 @@ class _MainShellState extends State<MainShell> {
     CommunityScreen(),
     TransportScreen(),
     RoutesScreen(),
+    RewardsScreen(),
     ProfileScreen(),
   ];
 
@@ -48,28 +50,32 @@ class _MainShellState extends State<MainShell> {
             backgroundColor: Colors.white,
             type: BottomNavigationBarType.fixed,
             elevation: 0,
-            selectedFontSize: 12,
-            unselectedFontSize: 11,
+            selectedFontSize: 11,
+            unselectedFontSize: 10,
             onTap: (i) => setState(() => _index = i),
             items: [
               BottomNavigationBarItem(
-                icon: Icon(Icons.home_rounded, size: 26),
+                icon: Icon(Icons.home_rounded, size: 24),
                 label: 'Главная',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.group_rounded, size: 26),
+                icon: Icon(Icons.group_rounded, size: 24),
                 label: 'Сообщество',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.directions_transit_rounded, size: 26),
+                icon: Icon(Icons.directions_transit_rounded, size: 24),
                 label: 'Транспорт',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.map_rounded, size: 26),
+                icon: Icon(Icons.map_rounded, size: 24),
                 label: 'Маршруты',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.person_rounded, size: 26),
+                icon: Icon(Icons.card_giftcard_rounded, size: 24),
+                label: 'Награды',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person_rounded, size: 24),
                 label: 'Профиль',
               ),
             ],
