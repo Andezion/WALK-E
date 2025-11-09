@@ -1,10 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';
+import 'package:latlong2/latlong.dart';
 import '../../../core/theme/app_colors.dart';
 import '../widgets/scooter_list_item.dart';
 import 'report_problem_screen.dart';
 
-class TransportScreen extends StatelessWidget {
+class TransportScreen extends StatefulWidget {
   const TransportScreen({super.key});
+
+  @override
+  _TransportScreenState createState() => _TransportScreenState();
+}
+
+class _TransportScreenState extends State<TransportScreen> {
+  final LatLng centerLocation = LatLng(51.7592, 19.4560);
+
+  final List<ScooterLocation> scooters = [
+    ScooterLocation(LatLng(51.7600, 19.4570), 80, 'Scooter #1'),
+    ScooterLocation(LatLng(51.7580, 19.4550), 55, 'Scooter #2'),
+    ScooterLocation(LatLng(51.7610, 19.4580), 70, 'Scooter #3'),
+    ScooterLocation(LatLng(51.7590, 19.4540), 85, 'Scooter #4'),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +39,7 @@ class TransportScreen extends StatelessWidget {
                     SizedBox(height: 24),
                     _buildSectionTitle('Карта микромобильности', Icons.map),
                     SizedBox(height: 12),
-                    _buildMapPlaceholder(),
+                    _buildMap(),
                     SizedBox(height: 24),
                     _buildSectionTitle('Транспорт рядом', Icons.electric_scooter),
                     SizedBox(height: 12),
@@ -208,15 +224,15 @@ class TransportScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildMapPlaceholder() {
+  Widget _buildMap() {
     return Container(
-      height: 200,
+      height: 300,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withOpacity(0.1),
             blurRadius: 10,
             offset: Offset(0, 5),
           ),
@@ -224,33 +240,64 @@ class TransportScreen extends StatelessWidget {
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
-        child: Stack(
+        child: FlutterMap(
+          options: MapOptions(
+            initialCenter: centerLocation,
+            initialZoom: 14.0,
+            minZoom: 10.0,
+            maxZoom: 18.0,
+          ),
           children: [
-            Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    AppColors.accent.withOpacity(0.1),
-                    AppColors.deep.withOpacity(0.1),
-                  ],
-                ),
-              ),
+            TileLayer(
+              urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+              userAgentPackageName: 'com.example.walke',
             ),
-            Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.map, size: 48, color: AppColors.accent.withOpacity(0.5)),
-                  SizedBox(height: 12),
-                  Text(
-                    'Карта загружается...',
-                    style: TextStyle(
-                      color: AppColors.dark.withOpacity(0.5),
-                      fontSize: 14,
+            MarkerLayer(
+              markers: [
+                Marker(
+                  point: centerLocation,
+                  width: 40,
+                  height: 40,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Colors.white, width: 3),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.blue.withOpacity(0.5),
+                          blurRadius: 10,
+                          spreadRadius: 2,
+                        ),
+                      ],
+                    ),
+                    child: Icon(Icons.person, color: Colors.white, size: 20),
+                  ),
+                ),
+                ...scooters.map((scooter) => Marker(
+                  point: scooter.location,
+                  width: 40,
+                  height: 40,
+                  child: GestureDetector(
+                    onTap: () => _showScooterPopup(context, scooter),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.accent,
+                        shape: BoxShape.circle,
+                        border: Border.all(color: Colors.white, width: 2),
+                        boxShadow: [
+                          BoxShadow(
+                            color: AppColors.accent.withOpacity(0.5),
+                            blurRadius: 8,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
+                      child: Icon(Icons.electric_scooter, color: Colors.white, size: 20),
                     ),
                   ),
-                ],
-              ),
+                )),
+              ],
             ),
           ],
         ),
@@ -368,6 +415,45 @@ class TransportScreen extends StatelessWidget {
     return Colors.red;
   }
 
+  void _showScooterPopup(BuildContext context, ScooterLocation scooter) {
+    showDialog(
+      context: context,
+      builder: (_) => AlertDialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        title: Row(
+          children: [
+            Icon(Icons.electric_scooter, color: AppColors.accent),
+            SizedBox(width: 12),
+            Text(scooter.name),
+          ],
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Заряд батареи: ${scooter.battery}%'),
+            SizedBox(height: 8),
+            Text('Расстояние: ~150 м'),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text('Закрыть', style: TextStyle(color: AppColors.dark)),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pop(context);
+              _openScooter(context, 0);
+            },
+            style: ElevatedButton.styleFrom(backgroundColor: AppColors.accent),
+            child: Text('Взять'),
+          ),
+        ],
+      ),
+    );
+  }
+
   void _reportProblem(BuildContext context) {
     Navigator.of(context).push(MaterialPageRoute(builder: (_) => ReportProblemScreen()));
   }
@@ -412,4 +498,12 @@ class TransportScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+class ScooterLocation {
+  final LatLng location;
+  final int battery;
+  final String name;
+
+  ScooterLocation(this.location, this.battery, this.name);
 }
