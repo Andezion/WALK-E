@@ -36,16 +36,16 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     _buildSettingsCard(
                       context,
-                      'Connected devices',
-                      'Фитнес-браслеты и устройства',
+                      'Устройства',
+                      'Фитнес-браслеты',
                       Icons.watch,
                       Colors.blue,
                           () {},
                     ),
                     _buildSettingsCard(
                       context,
-                      'История Eco Points',
-                      'Все твои награды и достижения',
+                      'История',
+                      'Eco Points и достижения',
                       Icons.history,
                       Colors.green,
                           () {},
@@ -53,15 +53,16 @@ class ProfileScreen extends StatelessWidget {
                     _buildSettingsCard(
                       context,
                       'Настройки',
-                      'Язык, уведомления, приватность',
+                      'Язык, уведомления',
                       Icons.settings,
                       Colors.orange,
                           () => Navigator.of(context).push(
                           MaterialPageRoute(builder: (_) => SettingsScreen())
                       ),
                     ),
-                    SizedBox(height: 16),
+                    SizedBox(height: 12),
                     _buildLogoutButton(context),
+                    SizedBox(height: 12),
                   ],
                 ),
               ),
@@ -189,9 +190,9 @@ class ProfileScreen extends StatelessWidget {
       physics: NeverScrollableScrollPhysics(),
       mainAxisSpacing: 12,
       crossAxisSpacing: 12,
-      childAspectRatio: 1.3,
+      childAspectRatio: 1.4,
       children: [
-        _buildStatCard('Шаги', '124,320', Icons.directions_walk, Colors.blue),
+        _buildStatCard('Шаги', '124K', Icons.directions_walk, Colors.blue),
         _buildStatCard('Прогулки', '48', Icons.route, Colors.purple),
         _buildStatCard('Стрик', '5 дней', Icons.local_fire_department, Colors.orange),
         _buildStatCard('Награды', '3', Icons.emoji_events, Colors.amber),
@@ -201,7 +202,7 @@ class ProfileScreen extends StatelessWidget {
 
   Widget _buildStatCard(String title, String value, IconData icon, Color color) {
     return Container(
-      padding: EdgeInsets.all(16),
+      padding: EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
@@ -217,18 +218,18 @@ class ProfileScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            padding: EdgeInsets.all(12),
+            padding: EdgeInsets.all(10),
             decoration: BoxDecoration(
               color: color.withOpacity(0.1),
-              borderRadius: BorderRadius.circular(14),
+              borderRadius: BorderRadius.circular(12),
             ),
-            child: Icon(icon, color: color, size: 28),
+            child: Icon(icon, color: color, size: 24),
           ),
-          SizedBox(height: 12),
+          SizedBox(height: 10),
           Text(
             value,
             style: TextStyle(
-              fontSize: 20,
+              fontSize: 18,
               fontWeight: FontWeight.bold,
               color: AppColors.dark,
             ),
@@ -237,7 +238,7 @@ class ProfileScreen extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-              fontSize: 12,
+              fontSize: 11,
               color: AppColors.dark.withOpacity(0.6),
             ),
           ),
@@ -320,17 +321,19 @@ class ProfileScreen extends StatelessWidget {
                         title,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 16,
+                          fontSize: 15,
                           color: AppColors.dark,
                         ),
                       ),
-                      SizedBox(height: 4),
+                      SizedBox(height: 3),
                       Text(
                         subtitle,
                         style: TextStyle(
-                          fontSize: 12,
+                          fontSize: 11,
                           color: AppColors.dark.withOpacity(0.6),
                         ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ],
                   ),
