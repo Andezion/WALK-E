@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Привет, Влад! 👋',
+                'Hello, Vlad! 👋',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 24,
@@ -58,7 +58,7 @@ class HomeScreen extends StatelessWidget {
               ),
               SizedBox(height: 4),
               Text(
-                'Готов к прогулке?',
+                'Ready for a walk?',
                 style: TextStyle(
                   color: Colors.white.withOpacity(0.8),
                   fontSize: 14,
@@ -112,7 +112,7 @@ class HomeScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '1,250 Eco Points',
+                  '1,250 Sprouts',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -125,7 +125,7 @@ class HomeScreen extends StatelessWidget {
                     Icon(Icons.trending_up, size: 16, color: Colors.green),
                     SizedBox(width: 4),
                     Text(
-                      '+120 за сегодня',
+                      '+120 for today',
                       style: TextStyle(
                         color: Colors.green,
                         fontWeight: FontWeight.w600,
@@ -143,7 +143,7 @@ class HomeScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
             ),
             child: Text(
-              'Уровень 8',
+              'Level 8',
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
@@ -163,36 +163,36 @@ class HomeScreen extends StatelessWidget {
         children: [
           _buildStatCard(
             icon: Icons.directions_walk,
-            title: 'Шаги',
+            title: 'Steps',
             value: '4,320',
-            subtitle: 'Цель: 10,000',
+            subtitle: 'Goal: 10,000',
             progress: 0.432,
             color: AppColors.accent,
           ),
           SizedBox(width: 12),
           _buildStatCard(
             icon: Icons.wb_sunny,
-            title: 'На улице',
-            value: '35 мин',
-            subtitle: 'Цель: 60 мин',
+            title: 'Outside',
+            value: '35 min',
+            subtitle: 'Goal: 60 min',
             progress: 0.583,
             color: Colors.orange,
           ),
           SizedBox(width: 12),
           _buildStatCard(
             icon: Icons.local_fire_department,
-            title: 'Стрик',
-            value: '5 дней',
-            subtitle: 'Лучший: 10',
+            title: 'Streak',
+            value: '5 days',
+            subtitle: 'Best: 10',
             progress: 0.5,
             color: Colors.red,
           ),
           SizedBox(width: 12),
           _buildStatCard(
             icon: Icons.emoji_events,
-            title: 'Награды',
+            title: 'Awards',
             value: '3',
-            subtitle: 'Всего: 12',
+            subtitle: 'All: 12',
             progress: 0.25,
             color: Colors.amber,
           ),
@@ -310,7 +310,7 @@ class HomeScreen extends StatelessWidget {
                 Icon(Icons.play_arrow, color: Colors.white, size: 32),
                 SizedBox(width: 12),
                 Text(
-                  'Начать прогулку',
+                  'Start walking',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
@@ -358,7 +358,7 @@ class HomeScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Ежедневное задание',
+                      'Daily task',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
@@ -367,7 +367,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 4),
                     Text(
-                      'Пройти 20 минут в парке',
+                      'Walk 20 minutes in a park',
                       style: TextStyle(
                         color: AppColors.dark.withOpacity(0.6),
                         fontSize: 14,
@@ -410,7 +410,7 @@ class HomeScreen extends StatelessWidget {
           ),
           SizedBox(height: 8),
           Text(
-            '40% выполнено',
+            '40% executed',
             style: TextStyle(
               fontSize: 12,
               color: AppColors.dark.withOpacity(0.6),
@@ -428,7 +428,7 @@ class HomeScreen extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 4),
           child: Text(
-            'Твой прогресс',
+            'Your progress',
             style: TextStyle(
               color: Colors.white,
               fontSize: 18,
@@ -445,11 +445,11 @@ class HomeScreen extends StatelessWidget {
           ),
           child: Column(
             children: [
-              _buildProgressItem('До следующего уровня', 600, 1000, AppColors.accent),
+              _buildProgressItem('To the next level', 600, 1000, AppColors.accent),
               SizedBox(height: 16),
-              _buildProgressItem('Недельная цель', 4320, 50000, Colors.green),
+              _buildProgressItem('Weekly target', 4320, 50000, Colors.green),
               SizedBox(height: 16),
-              _buildProgressItem('Месячная цель', 15000, 200000, Colors.blue),
+              _buildProgressItem('Monthly target', 15000, 200000, Colors.blue),
             ],
           ),
         ),
@@ -502,7 +502,7 @@ class HomeScreen extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 4, vertical: 8),
           child: Text(
-            'Недавние активности',
+            'Recent activity',
             style: TextStyle(
               color: Colors.white,
               fontSize: 18,
@@ -535,7 +535,7 @@ class HomeScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Прогулка • ${10 + i * 5} мин',
+                        'Walk • ${10 + i * 5} min',
                         style: TextStyle(
                           fontWeight: FontWeight.w600,
                           color: AppColors.dark,
@@ -543,7 +543,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 4),
                       Text(
-                        '+${(i + 1) * 10} Eco Points',
+                        '+${(i + 1) * 10} Sprouts',
                         style: TextStyle(
                           color: Colors.green,
                           fontSize: 12,
@@ -560,7 +560,7 @@ class HomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Text(
-                    'ур. ${(i % 3) + 1}',
+                    'lv. ${(i % 3) + 1}',
                     style: TextStyle(
                       color: AppColors.accent,
                       fontWeight: FontWeight.bold,
@@ -599,7 +599,7 @@ class HomeScreen extends StatelessWidget {
             ),
             SizedBox(height: 20),
             Text(
-              'Выбери тип активности',
+              'Select the type of activity',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -614,10 +614,10 @@ class HomeScreen extends StatelessWidget {
               crossAxisSpacing: 12,
               childAspectRatio: 1.5,
               children: [
-                _buildActivityTypeButton(context, 'Пешком', Icons.directions_walk),
-                _buildActivityTypeButton(context, 'Бег', Icons.directions_run),
-                _buildActivityTypeButton(context, 'Велосипед', Icons.directions_bike),
-                _buildActivityTypeButton(context, 'Самокат', Icons.electric_scooter),
+                _buildActivityTypeButton(context, 'Walk', Icons.directions_walk),
+                _buildActivityTypeButton(context, 'Run', Icons.directions_run),
+                _buildActivityTypeButton(context, 'Bike', Icons.directions_bike),
+                _buildActivityTypeButton(context, 'Scooter', Icons.electric_scooter),
               ],
             ),
           ],
@@ -633,7 +633,7 @@ class HomeScreen extends StatelessWidget {
         onTap: () {
           Navigator.pop(context);
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Запущен режим: $label')),
+            SnackBar(content: Text('Mode started: $label')),
           );
         },
         borderRadius: BorderRadius.circular(16),

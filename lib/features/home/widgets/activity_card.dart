@@ -12,11 +12,11 @@ class ActivityCard extends StatelessWidget {
         padding: EdgeInsets.all(16),
         child: Row(
           children: [
-            _metricBlock('Шаги', '4 320', Icons.directions_walk),
+            _metricBlock('Steps', '4 320', Icons.directions_walk),
             VerticalDivider(),
-            _metricBlock('На улице', '35 мин', Icons.wb_sunny_outlined),
+            _metricBlock('Outside', '35 min', Icons.wb_sunny_outlined),
             VerticalDivider(),
-            _metricBlock('Уровень', '8', Icons.star),
+            _metricBlock('Level', '8', Icons.star),
           ],
         ),
       ),

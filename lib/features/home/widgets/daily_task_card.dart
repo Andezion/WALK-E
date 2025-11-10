@@ -13,21 +13,21 @@ class DailyTaskCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Ежедневное задание', style: TextStyle(fontWeight: FontWeight.w600)),
+            Text('Daily task', style: TextStyle(fontWeight: FontWeight.w600)),
             SizedBox(height: 8),
-            Text('Пройти 20 минут в парке • +50 Eco Points'),
+            Text('Walk 20 minutes in a park • +50 Sprouts'),
             SizedBox(height: 12),
             Row(
               children: [
                 ElevatedButton(
                   onPressed: () => _showTaskComplete(context),
                   style: ElevatedButton.styleFrom(backgroundColor: AppColors.accent),
-                  child: Text('Выполнить'),
+                  child: Text('Execute'),
                 ),
                 SizedBox(width: 12),
                 OutlinedButton(
                     onPressed: () => _remindLater(context),
-                    child: Text('Напомнить позже')
+                    child: Text('Remind me later')
                 )
               ],
             )
@@ -41,8 +41,8 @@ class DailyTaskCard extends StatelessWidget {
     showDialog(
         context: context,
         builder: (_) => AlertDialog(
-          title: Text('Готово!'),
-          content: Text('Задание отмечено. +50 Eco Points.'),
+          title: Text('Done!'),
+          content: Text('The task is marked. +50 Sprouts.'),
           actions: [
             TextButton(
                 onPressed: () => Navigator.pop(context),
@@ -55,7 +55,7 @@ class DailyTaskCard extends StatelessWidget {
 
   void _remindLater(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Напоминание через 1 час (только UI)'))
+        SnackBar(content: Text('Reminder after 1 hour (только UI)'))
     );
   }
 }
