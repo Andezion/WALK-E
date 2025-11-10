@@ -191,7 +191,7 @@ class ProfileScreen extends StatelessWidget {
       physics: NeverScrollableScrollPhysics(),
       mainAxisSpacing: 10,
       crossAxisSpacing: 10,
-      childAspectRatio: 1.5,
+      childAspectRatio: 1.2,
       children: [
         _buildStatCard('Steps', '124K', Icons.directions_walk, Colors.blue),
         _buildStatCard('Walks', '48', Icons.route, Colors.purple),
