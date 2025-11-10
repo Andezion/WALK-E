@@ -60,7 +60,13 @@ class _AuthGateScreenState extends State<AuthGateScreen> {
                           Navigator.of(context).pushReplacement(
                               MaterialPageRoute(builder: (_) => MainShell()));
                         },
-                        child: Text(showLogin ? 'Sign in' : 'Register'),
+                          child: Text(
+                            showLogin ? 'Sign in' : 'Register',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                       ),
                       SizedBox(height: 8),
                       TextButton(
