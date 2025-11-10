@@ -22,15 +22,15 @@ class CommunityScreen extends StatelessWidget {
                   children: [
                     _buildCreateWalkButton(context),
                     SizedBox(height: 24),
-                    _buildSectionTitle('Доступные прогулки', Icons.group),
+                    _buildSectionTitle('Accessible walks', Icons.group),
                     SizedBox(height: 12),
                     ...List.generate(3, (i) => _buildWalkCard(context, i)),
                     SizedBox(height: 24),
-                    _buildSectionTitle('Рисуй маршруты', Icons.brush),
+                    _buildSectionTitle('Draw routes', Icons.brush),
                     SizedBox(height: 12),
                     _buildDrawingOptions(context),
                     SizedBox(height: 24),
-                    _buildSectionTitle('Галерея рисунков', Icons.photo_library),
+                    _buildSectionTitle('Gallery of drawings', Icons.photo_library),
                     SizedBox(height: 12),
                     _buildGallery(),
                   ],
@@ -50,7 +50,7 @@ class CommunityScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            'Сообщество',
+            'Community',
             style: TextStyle(
               color: Colors.white,
               fontSize: 28,
@@ -104,7 +104,7 @@ class CommunityScreen extends StatelessWidget {
                 Icon(Icons.add_circle, color: Colors.white, size: 28),
                 SizedBox(width: 12),
                 Text(
-                  'Создать прогулку',
+                  'Create a walk',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -181,7 +181,7 @@ class CommunityScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Вечерняя прогулка в парке ${index + 1}',
+                        'Evening walk in the park ${index + 1}',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
@@ -191,7 +191,7 @@ class CommunityScreen extends StatelessWidget {
                       SizedBox(height: 4),
                       Row(
                         children: [
-                          _buildInfoChip(Icons.straighten, '3.2 км', Colors.blue),
+                          _buildInfoChip(Icons.straighten, '3.2 km', Colors.blue),
                           SizedBox(width: 8),
                           _buildInfoChip(Icons.access_time, '18:30', Colors.orange),
                         ],
@@ -210,7 +210,7 @@ class CommunityScreen extends StatelessWidget {
                     Icon(Icons.people, size: 16, color: AppColors.dark.withOpacity(0.6)),
                     SizedBox(width: 4),
                     Text(
-                      '${5 + index} участников',
+                      '${5 + index} participants',
                       style: TextStyle(
                         color: AppColors.dark.withOpacity(0.6),
                         fontSize: 13,
@@ -228,7 +228,7 @@ class CommunityScreen extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   ),
                   child: Text(
-                    'Присоединиться',
+                    'Join',
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
@@ -271,7 +271,7 @@ class CommunityScreen extends StatelessWidget {
         Expanded(
           child: _buildOptionCard(
             context,
-            'Нарисовать свой',
+            'Draw your own',
             Icons.draw,
             Colors.purple,
                 () => _drawOwn(context),
@@ -281,7 +281,7 @@ class CommunityScreen extends StatelessWidget {
         Expanded(
           child: _buildOptionCard(
             context,
-            'Из шаблонов',
+            'From templates',
             Icons.auto_awesome,
             Colors.amber,
                 () => _drawFromTemplates(context),
@@ -376,7 +376,7 @@ class CommunityScreen extends StatelessWidget {
                 left: 12,
                 right: 12,
                 child: Text(
-                  'Рисунок ${idx + 1}',
+                  'Figure ${idx + 1}',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white,
@@ -408,7 +408,7 @@ class CommunityScreen extends StatelessWidget {
   void _joinWalk(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('Запрос на присоединение отправлен'),
+        content: Text('Accession request sent'),
         backgroundColor: Colors.green,
         behavior: SnackBarBehavior.floating,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),

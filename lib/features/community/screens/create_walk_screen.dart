@@ -16,19 +16,19 @@ class _CreateWalkScreenState extends State<CreateWalkScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Создать прогулку')),
+      appBar: AppBar(title: Text('Create a walk')),
       body: Padding(
         padding: EdgeInsets.all(16),
         child: Column(
             children: [
               TextField(
                   controller: _title,
-                  decoration: InputDecoration(labelText: 'Название')
+                  decoration: InputDecoration(labelText: 'Title')
               ),
               SizedBox(height: 8),
               Row(
                   children: [
-                    Text('Длительность: ${_duration.inMinutes} мин'),
+                    Text('Duration: ${_duration.inMinutes} min'),
                     Spacer(),
                     IconButton(
                         onPressed: () => setState(() => _duration += Duration(minutes: 10)),
@@ -41,7 +41,7 @@ class _CreateWalkScreenState extends State<CreateWalkScreen> {
                   ]
               ),
               SwitchListTile(
-                  title: Text('Требуется подтверждение'),
+                  title: Text('Confirmation required'),
                   value: _requiresApproval,
                   onChanged: (v) => setState(() => _requiresApproval = v)
               ),
@@ -52,7 +52,7 @@ class _CreateWalkScreenState extends State<CreateWalkScreen> {
                       backgroundColor: AppColors.accent,
                       minimumSize: Size.fromHeight(48)
                   ),
-                  child: Text('Создать')
+                  child: Text('Create')
               ),
             ]
         ),
@@ -63,7 +63,7 @@ class _CreateWalkScreenState extends State<CreateWalkScreen> {
   void _create() {
     Navigator.of(context).pop();
     ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Прогулка создана (UI only)'))
+        SnackBar(content: Text('A walk is created (UI only)'))
     );
   }
 }
