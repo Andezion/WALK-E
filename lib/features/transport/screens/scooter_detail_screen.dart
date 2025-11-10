@@ -53,7 +53,7 @@ class ScooterListItem extends StatelessWidget {
               SizedBox(width: 8),
               _buildInfoChip(
                   Icons.location_on,
-                  '$distanceMeters м',
+                  '$distanceMeters m',
                   AppColors.dark.withOpacity(0.6)
               ),
             ],
@@ -65,7 +65,7 @@ class ScooterListItem extends StatelessWidget {
               backgroundColor: AppColors.accent,
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8)
           ),
-          child: Text('Взять', style: TextStyle(fontSize: 12)),
+          child: Text('Take', style: TextStyle(fontSize: 12)),
         ),
       ),
     );

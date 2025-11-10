@@ -14,20 +14,20 @@ class _ReportProblemScreenState extends State<ReportProblemScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Сообщить о проблеме')),
+      appBar: AppBar(title: Text('Report a problem')),
       body: Padding(
         padding: EdgeInsets.all(16),
         child: Column(
             children: [
               TextField(
                   controller: desc,
-                  decoration: InputDecoration(labelText: 'Описание проблемы')
+                  decoration: InputDecoration(labelText: 'Problem Description')
               ),
               SizedBox(height: 12),
               OutlinedButton.icon(
                   onPressed: () {},
                   icon: Icon(Icons.photo_camera),
-                  label: Text('Прикрепить фото (UI)')
+                  label: Text('Attach photo (UI)')
               ),
               Spacer(),
               ElevatedButton(
@@ -36,7 +36,7 @@ class _ReportProblemScreenState extends State<ReportProblemScreen> {
                       backgroundColor: AppColors.accent,
                       minimumSize: Size.fromHeight(48)
                   ),
-                  child: Text('Отправить')
+                  child: Text('Send')
               ),
             ]
         ),
@@ -47,7 +47,7 @@ class _ReportProblemScreenState extends State<ReportProblemScreen> {
   void _send() {
     Navigator.pop(context);
     ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Проблема отправлена • +10 Eco Points (симуляция)'))
+        SnackBar(content: Text('Problem sent • +10 Sprouts'))
     );
   }
 }

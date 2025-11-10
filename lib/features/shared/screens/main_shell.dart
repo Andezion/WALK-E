@@ -56,27 +56,27 @@ class _MainShellState extends State<MainShell> {
             items: [
               BottomNavigationBarItem(
                 icon: Icon(Icons.home_rounded, size: 24),
-                label: 'Главная',
+                label: 'Main',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.group_rounded, size: 24),
-                label: 'Сообщество',
+                label: 'Community',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.directions_transit_rounded, size: 24),
-                label: 'Транспорт',
+                label: 'Transport',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.map_rounded, size: 24),
-                label: 'Маршруты',
+                label: 'Routes',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.card_giftcard_rounded, size: 24),
-                label: 'Награды',
+                label: 'Awards',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.person_rounded, size: 24),
-                label: 'Профиль',
+                label: 'Profile',
               ),
             ],
           ),

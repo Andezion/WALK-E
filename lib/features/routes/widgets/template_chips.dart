@@ -20,7 +20,7 @@ class _TemplateChipsState extends State<TemplateChips> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-            'Предложенные фигуры',
+            'Suggested figures',
             style: TextStyle(
                 fontWeight: FontWeight.w600,
                 fontSize: 16
@@ -66,22 +66,22 @@ class _TemplateChipsState extends State<TemplateChips> {
   Widget _getTemplateIcon(String template) {
     IconData icon;
     switch (template) {
-      case 'Сердце':
+      case 'Heart':
         icon = Icons.favorite;
         break;
-      case 'Звезда':
+      case 'Star':
         icon = Icons.star;
         break;
-      case 'Смайлик':
+      case 'Smiley face':
         icon = Icons.emoji_emotions;
         break;
-      case 'Единорог':
+      case 'Unicorn':
+        icon = Icons. pets;
+        break;
+      case 'Cat':
         icon = Icons.pets;
         break;
-      case 'Кошка':
-        icon = Icons.pets;
-        break;
-      case 'Какашка':
+      case 'Poop':
         icon = Icons.emoji_emotions_outlined;
         break;
       default:
