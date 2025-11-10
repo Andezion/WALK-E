@@ -12,18 +12,18 @@ class BuildRouteCard extends StatelessWidget {
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Построить маршрут', style: TextStyle(fontWeight: FontWeight.w600)),
+              Text('Build a route', style: TextStyle(fontWeight: FontWeight.w600)),
               SizedBox(height: 8),
               TextField(
                   decoration: InputDecoration(
-                      hintText: 'Откуда',
+                      hintText: 'From',
                       prefixIcon: Icon(Icons.location_on)
                   )
               ),
               SizedBox(height: 8),
               TextField(
                   decoration: InputDecoration(
-                      hintText: 'Куда',
+                      hintText: 'To',
                       prefixIcon: Icon(Icons.flag)
                   )
               ),
@@ -32,12 +32,12 @@ class BuildRouteCard extends StatelessWidget {
                   children: [
                     ElevatedButton(
                         onPressed: () => _buildRoute(context),
-                        child: Text('Построить')
+                        child: Text('Build')
                     ),
                     SizedBox(width: 8),
                     OutlinedButton(
                         onPressed: () => _openTransportHub(context),
-                        child: Text('Показать хабы')
+                        child: Text('Show hubs')
                     ),
                   ]
               )
@@ -49,7 +49,7 @@ class BuildRouteCard extends StatelessWidget {
 
   void _buildRoute(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Маршрут построен (симуляция UI)'))
+        SnackBar(content: Text('Route is built (UI simulation)'))
     );
   }
 
@@ -57,12 +57,12 @@ class BuildRouteCard extends StatelessWidget {
     showDialog(
         context: context,
         builder: (_) => AlertDialog(
-          title: Text('Хабы в городе'),
-          content: Text('Список хабов и станции (UI only)'),
+          title: Text('Hubs in the city'),
+          content: Text('Hub and station list (UI only)'),
           actions: [
             TextButton(
                 onPressed: () => Navigator.pop(context),
-                child: Text('Закрыть')
+                child: Text('Close')
             )
           ],
         )

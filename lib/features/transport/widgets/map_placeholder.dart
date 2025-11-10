@@ -15,7 +15,7 @@ class MapPlaceholder extends StatelessWidget {
       ),
       child: Center(
           child: Text(
-              'MAP / Placeholder\n(интерактивность отключена)',
+              'Map \n',
               textAlign: TextAlign.center
           )
       ),

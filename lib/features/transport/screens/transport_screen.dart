@@ -37,11 +37,11 @@ class _TransportScreenState extends State<TransportScreen> {
                   children: [
                     _buildRouteCard(context),
                     SizedBox(height: 24),
-                    _buildSectionTitle('Карта микромобильности', Icons.map),
+                    _buildSectionTitle('Micro-mobility map', Icons.map),
                     SizedBox(height: 12),
                     _buildMap(),
                     SizedBox(height: 24),
-                    _buildSectionTitle('Транспорт рядом', Icons.electric_scooter),
+                    _buildSectionTitle('Transport nearby', Icons.electric_scooter),
                     SizedBox(height: 12),
                     ...List.generate(4, (i) => _buildScooterCard(context, i)),
                   ],
@@ -61,7 +61,7 @@ class _TransportScreenState extends State<TransportScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            'Транспорт',
+            'Transport',
             style: TextStyle(
               color: Colors.white,
               fontSize: 28,
@@ -140,7 +140,7 @@ class _TransportScreenState extends State<TransportScreen> {
               ),
               SizedBox(width: 12),
               Text(
-                'Построить маршрут',
+                'Build a route',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
@@ -150,9 +150,9 @@ class _TransportScreenState extends State<TransportScreen> {
             ],
           ),
           SizedBox(height: 16),
-          _buildRouteInput('Откуда', Icons.location_on, Colors.blue),
+          _buildRouteInput('From', Icons.location_on, Colors.blue),
           SizedBox(height: 12),
-          _buildRouteInput('Куда', Icons.flag, Colors.red),
+          _buildRouteInput('To', Icons.flag, Colors.red),
           SizedBox(height: 16),
           Row(
             children: [
@@ -167,7 +167,7 @@ class _TransportScreenState extends State<TransportScreen> {
                     ),
                   ),
                   child: Text(
-                    'Построить',
+                    'Build',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                   ),
                 ),
@@ -184,7 +184,7 @@ class _TransportScreenState extends State<TransportScreen> {
                     ),
                   ),
                   child: Text(
-                    'Хабы',
+                    'Hubs',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: AppColors.accent,
@@ -356,7 +356,7 @@ class _TransportScreenState extends State<TransportScreen> {
                       SizedBox(width: 8),
                       _buildScooterChip(
                         Icons.location_on,
-                        '120 м',
+                        '120 m',
                         Colors.blue,
                       ),
                     ],
@@ -374,7 +374,7 @@ class _TransportScreenState extends State<TransportScreen> {
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               ),
               child: Text(
-                'Взять',
+                'Take',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
             ),
@@ -431,15 +431,15 @@ class _TransportScreenState extends State<TransportScreen> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Заряд батареи: ${scooter.battery}%'),
+            Text('Battery charge: ${scooter.battery}%'),
             SizedBox(height: 8),
-            Text('Расстояние: ~150 м'),
+            Text('Distance: ~150 m'),
           ],
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: Text('Закрыть', style: TextStyle(color: AppColors.dark)),
+            child: Text('Close', style: TextStyle(color: AppColors.dark)),
           ),
           ElevatedButton(
             onPressed: () {
@@ -447,7 +447,7 @@ class _TransportScreenState extends State<TransportScreen> {
               _openScooter(context, 0);
             },
             style: ElevatedButton.styleFrom(backgroundColor: AppColors.accent),
-            child: Text('Взять'),
+            child: Text('Take'),
           ),
         ],
       ),
@@ -465,7 +465,7 @@ class _TransportScreenState extends State<TransportScreen> {
   void _buildRoute(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('Маршрут построен'),
+        content: Text('The route is constructed'),
         backgroundColor: Colors.green,
         behavior: SnackBarBehavior.floating,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -482,15 +482,15 @@ class _TransportScreenState extends State<TransportScreen> {
           children: [
             Icon(Icons.hub, color: AppColors.accent),
             SizedBox(width: 12),
-            Text('Хабы в городе'),
+            Text('Hubs in the city'),
           ],
         ),
-        content: Text('Список транспортных хабов и станций'),
+        content: Text('List of transport hubs and stations'),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
             child: Text(
-              'Закрыть',
+              'Close',
               style: TextStyle(color: AppColors.accent, fontWeight: FontWeight.bold),
             ),
           ),
