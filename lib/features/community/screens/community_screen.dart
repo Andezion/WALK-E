@@ -229,7 +229,7 @@ class CommunityScreen extends StatelessWidget {
                   ),
                   child: Text(
                     'Join',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
                   ),
                 ),
               ],
