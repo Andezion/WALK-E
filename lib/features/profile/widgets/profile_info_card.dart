@@ -51,13 +51,13 @@ class ProfileInfoCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                _buildStatItem('Eco Points', ecoPoints.toString(), Icons.eco),
+                _buildStatItem('Sprouts', ecoPoints.toString(), Icons.eco),
                 Container(
                   width: 1,
                   height: 40,
                   color: AppColors.dark.withOpacity(0.2),
                 ),
-                _buildStatItem('Уровень', level.toString(), Icons.star),
+                _buildStatItem('Level', level.toString(), Icons.star),
               ],
             ),
             SizedBox(height: 16),
@@ -68,7 +68,7 @@ class ProfileInfoCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                        'Прогресс до уровня ${level + 1}',
+                        'Progress to the level ${level + 1}',
                         style: TextStyle(fontSize: 12)
                     ),
                     Text(

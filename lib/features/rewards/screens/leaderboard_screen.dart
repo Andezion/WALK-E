@@ -6,15 +6,15 @@ class LeaderboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Таблица лидеров')),
+        appBar: AppBar(title: Text('Leaderboard')),
         body: ListView.builder(
           padding: EdgeInsets.all(16),
           itemCount: 10,
           itemBuilder: (_, i) => Card(
               child: ListTile(
                   leading: CircleAvatar(child: Text('${i+1}')),
-                  title: Text('Пользователь ${i+1}'),
-                  subtitle: Text('${2000 - i*100} Eco Points')
+                  title: Text('User ${i+1}'),
+                  subtitle: Text('${2000 - i*100} Sprouts')
               )
           ),
         )
