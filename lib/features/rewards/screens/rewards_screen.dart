@@ -101,7 +101,7 @@ class RewardsScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            'Awards',
+            'Rewards',
             style: TextStyle(
               color: Colors.white,
               fontSize: 28,

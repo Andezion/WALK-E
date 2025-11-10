@@ -190,7 +190,7 @@ class HomeScreen extends StatelessWidget {
           SizedBox(width: 12),
           _buildStatCard(
             icon: Icons.emoji_events,
-            title: 'Awards',
+            title: 'Rewards',
             value: '3',
             subtitle: 'All: 12',
             progress: 0.25,

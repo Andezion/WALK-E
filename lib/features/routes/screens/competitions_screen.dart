@@ -13,7 +13,7 @@ class CompetitionsScreen extends StatelessWidget {
             Card(
                 child: ListTile(
                     title: Text('Figure of the month'),
-                    subtitle: Text('Best Drawings - Awards')
+                    subtitle: Text('Best Drawings - Rewards')
                 )
             ),
             Card(

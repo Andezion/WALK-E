@@ -72,7 +72,7 @@ class _MainShellState extends State<MainShell> {
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.card_giftcard_rounded, size: 24),
-                label: 'Awards',
+                label: 'Rewards',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.person_rounded, size: 24),
