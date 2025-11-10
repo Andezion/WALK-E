@@ -91,7 +91,7 @@ class RewardProgressItem extends StatelessWidget {
                     )
                 ),
                 Text(
-                    'Осталось: ${requiredPoints - currentPoints}',
+                    'Left: ${requiredPoints - currentPoints}',
                     style: TextStyle(
                         fontSize: 12,
                         color: AppColors.accent,

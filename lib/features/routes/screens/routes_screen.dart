@@ -22,11 +22,11 @@ class RoutesScreen extends StatelessWidget {
                   children: [
                     _buildDrawRouteCard(context),
                     SizedBox(height: 24),
-                    _buildSectionTitle('Предложенные фигуры', Icons.auto_awesome),
+                    _buildSectionTitle('Suggested figures', Icons.auto_awesome),
                     SizedBox(height: 12),
                     _buildTemplateChips(context),
                     SizedBox(height: 24),
-                    _buildSectionTitle('Твои рисунки', Icons.photo_library),
+                    _buildSectionTitle('Your drawings', Icons.photo_library),
                     SizedBox(height: 12),
                     ...List.generate(3, (i) => _buildRouteHistoryCard(context, i)),
                   ],
@@ -46,7 +46,7 @@ class RoutesScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            'Маршруты',
+            'Routes',
             style: TextStyle(
               color: Colors.white,
               fontSize: 28,
@@ -133,7 +133,7 @@ class RoutesScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Нарисуй маршрут',
+                      'Draw a route',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
@@ -142,7 +142,7 @@ class RoutesScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 4),
                     Text(
-                      'Сердечко, смайлик, звезда',
+                      'Heart, smiley face, star',
                       style: TextStyle(
                         color: Colors.white.withOpacity(0.8),
                         fontSize: 13,
@@ -170,7 +170,7 @@ class RoutesScreen extends StatelessWidget {
                 Icon(Icons.create),
                 SizedBox(width: 8),
                 Text(
-                  'Начать рисовать',
+                  'Start painting',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                 ),
               ],
@@ -193,21 +193,21 @@ class RoutesScreen extends StatelessWidget {
 
   Widget _buildTemplateChip(BuildContext context, String template) {
     final colors = {
-      'Сердце': Colors.red,
-      'Звезда': Colors.amber,
-      'Смайлик': Colors.orange,
-      'Единорог': Colors.pink,
-      'Кошка': Colors.purple,
-      'Какашка': Colors.brown,
+      'Heart': Colors.red,
+      'Star': Colors.amber,
+      'Smiley Face': Colors.orange,
+      'Unicorn': Colors.pink,
+      'Cat': Colors.purple,
+      'Poop': Colors.brown,
     };
 
     final icons = {
-      'Сердце': Icons.favorite,
-      'Звезда': Icons.star,
-      'Смайлик': Icons.emoji_emotions,
-      'Единорог': Icons.pets,
-      'Кошка': Icons.pets,
-      'Какашка': Icons.emoji_emotions_outlined,
+      'Heart': Icons.favorite,
+      'Star': Icons.star,
+      'Smiley face': Icons.emoji_emotions,
+      'Unicorn': Icons.pets,
+      'Cat': Icons.pets,
+      'Poop': Icons.emoji_emotions_outlined,
     };
 
     final color = colors[template] ?? AppColors.accent;
@@ -290,7 +290,7 @@ class RoutesScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Рисунок ${index + 1}',
+                    'Picture ${index + 1}',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
@@ -300,7 +300,7 @@ class RoutesScreen extends StatelessWidget {
                   SizedBox(height: 6),
                   Row(
                     children: [
-                      _buildInfoBadge(Icons.straighten, '${2 + index * 3} км', Colors.blue),
+                      _buildInfoBadge(Icons.straighten, '${2 + index * 3} km', Colors.blue),
                       SizedBox(width: 8),
                       _buildInfoBadge(Icons.eco, '${(index + 1) * 10} pts', Colors.green),
                     ],
@@ -357,7 +357,7 @@ class RoutesScreen extends StatelessWidget {
   void _pickTemplate(BuildContext context, String name) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('Выбран шаблон: $name'),
+        content: Text('Pattern selected: $name'),
         backgroundColor: AppColors.accent,
         behavior: SnackBarBehavior.floating,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),

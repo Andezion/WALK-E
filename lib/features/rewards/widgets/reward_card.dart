@@ -56,7 +56,7 @@ class RewardCard extends StatelessWidget {
                   Icon(Icons.eco, size: 14, color: AppColors.accent),
                   SizedBox(width: 4),
                   Text(
-                      '$cost Eco Points',
+                      '$cost Sprouts',
                       style: TextStyle(
                           color: AppColors.accent,
                           fontWeight: FontWeight.w600
@@ -74,7 +74,7 @@ class RewardCard extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8)
             ),
             child: Text(
-                'Обменять',
+                'Exchange',
                 style: TextStyle(fontSize: 12)
             ),
           ),

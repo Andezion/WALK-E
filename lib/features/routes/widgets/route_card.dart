@@ -71,7 +71,7 @@ class RouteCard extends StatelessWidget {
                         ),
                         SizedBox(width: 4),
                         Text(
-                            'Длина: $distance',
+                            'Length: $distance',
                             style: TextStyle(
                                 fontSize: 13,
                                 color: AppColors.dark.withOpacity(0.7)
@@ -89,7 +89,7 @@ class RouteCard extends StatelessWidget {
                         ),
                         SizedBox(width: 4),
                         Text(
-                            'Точки: $points',
+                            'Points: $points',
                             style: TextStyle(
                                 fontSize: 13,
                                 color: AppColors.accent,
@@ -105,7 +105,7 @@ class RouteCard extends StatelessWidget {
                 IconButton(
                   onPressed: onShare,
                   icon: Icon(Icons.share, color: AppColors.accent),
-                  tooltip: 'Поделиться',
+                  tooltip: 'Share',
                 ),
             ],
           ),

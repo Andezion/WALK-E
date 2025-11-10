@@ -4,59 +4,59 @@ import '../../../core/theme/app_colors.dart';
 class RewardsScreen extends StatelessWidget {
   final List<RewardItem> rewards = [
     RewardItem(
-      title: 'Велосипед на 20 минут',
+      title: 'A bike for 20 minutes',
       icon: Icons.directions_bike,
       cost: 50,
-      description: 'Darmowe 20 minut na rowerze! Wybierz swoją przejażdżkę po mieście!',
+      description: '20 minutes free on a bike! Choose your ride around the city!',
       color: Colors.blue,
     ),
     RewardItem(
-      title: 'Скидка на велопрокат',
+      title: 'Discount on bicycle rentals',
       icon: Icons.pedal_bike,
       cost: 70,
-      description: 'Получи скидку 30% на аренду велосипеда на час',
+      description: 'Get a 30% discount on renting a bike for an hour',
       color: Colors.orange,
     ),
     RewardItem(
-      title: 'Билет в театр',
+      title: 'A ticket to the theater',
       icon: Icons.theater_comedy,
       cost: 350,
-      description: 'Бесплатный билет в городской театр на любое представление',
+      description: 'Free ticket to the city theater for any performance',
       color: Colors.purple,
     ),
     RewardItem(
-      title: 'Самокат на 30 минут',
+      title: 'Scooter for 30 minutes',
       icon: Icons.electric_scooter,
       cost: 150,
-      description: 'Бесплатная поездка на электросамокате 30 минут',
+      description: 'Free electric scooter ride for 30 minutes',
       color: Colors.green,
     ),
     RewardItem(
-      title: 'Скидка 20% в кафе',
+      title: '20% off at the cafe',
       icon: Icons.local_cafe,
       cost: 130,
-      description: 'Скидка 20% в партнерских кафе города',
+      description: '20% discount in partner cafes of the city',
       color: Colors.brown,
     ),
     RewardItem(
-      title: 'Абонемент в музей',
+      title: 'Museum subscription',
       icon: Icons.museum,
       cost: 500,
-      description: 'Месячный абонемент во все городские музеи',
+      description: 'Monthly pass to all city museums',
       color: Colors.indigo,
     ),
     RewardItem(
-      title: 'Велосипед на час',
+      title: 'Bike for an hour',
       icon: Icons.directions_bike,
       cost: 75,
-      description: '60 минут бесплатной езды на велосипеде',
+      description: '60 minutes of free cycling',
       color: Colors.teal,
     ),
     RewardItem(
-      title: 'Автобус на день',
+      title: 'Bus for the day',
       icon: Icons.directions_bus,
       cost: 150,
-      description: 'Безлимитные поездки на автобусе в течение дня',
+      description: 'Unlimited bus rides during the day',
       color: Colors.red,
     ),
   ];
@@ -101,7 +101,7 @@ class RewardsScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            'Награды',
+            'Awards',
             style: TextStyle(
               color: Colors.white,
               fontSize: 28,
@@ -302,7 +302,7 @@ class RewardsScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          'Стоимость',
+                          'Cost',
                           style: TextStyle(
                             fontSize: 12,
                             color: AppColors.dark.withOpacity(0.6),
@@ -339,7 +339,7 @@ class RewardsScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          'У тебя',
+                          'You have',
                           style: TextStyle(
                             fontSize: 12,
                             color: AppColors.dark.withOpacity(0.6),
@@ -394,7 +394,7 @@ class RewardsScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16),
                   child: Center(
                     child: Text(
-                      'Обменять',
+                      'Exchange',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
@@ -421,11 +421,11 @@ class RewardsScreen extends StatelessWidget {
           children: [
             Icon(Icons.check_circle, color: Colors.green, size: 28),
             SizedBox(width: 12),
-            Text('Успешно!'),
+            Text('Success!'),
           ],
         ),
         content: Text(
-          'Награда "${reward.title}" получена! Проверь свою почту для деталей.',
+          'Reward "${reward.title}" received! Check your email for details.',
           style: TextStyle(fontSize: 15),
         ),
         actions: [

@@ -6,20 +6,20 @@ class CompetitionsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Соревнования')),
+        appBar: AppBar(title: Text('Contests')),
         body: ListView(
           padding: EdgeInsets.all(16),
           children: [
             Card(
                 child: ListTile(
-                    title: Text('Рисунок месяца'),
-                    subtitle: Text('Лучшие рисунки • Награды')
+                    title: Text('Figure of the month'),
+                    subtitle: Text('Best Drawings - Awards')
                 )
             ),
             Card(
                 child: ListTile(
-                    title: Text('Ночной контур'),
-                    subtitle: Text('Марафон 5 км')
+                    title: Text('Night circuit'),
+                    subtitle: Text('Marathon 5 км')
                 )
             ),
           ],

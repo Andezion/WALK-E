@@ -35,13 +35,13 @@ class Activity {
   String get typeDisplayName {
     switch (type) {
       case ActivityType.walking:
-        return 'Прогулка';
+        return 'Walk';
       case ActivityType.running:
-        return 'Бег';
+        return 'Run';
       case ActivityType.bicycle:
-        return 'Велосипед';
+        return 'Bike';
       case ActivityType.scooter:
-        return 'Самокат';
+        return 'Scooter';
     }
   }
 
