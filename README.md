@@ -24,7 +24,9 @@ Users earn points for walking and spending time outdoors, complete wellness chal
 
 ## Demonstration
 
-*(Coming soon — app screenshots and demo video)*
+https://github.com/user-attachments/assets/43a6aafa-e27a-4936-9b1c-e1a0ef314395
+
+*(Coming soon — app screenshots)*
 
 ---
 
