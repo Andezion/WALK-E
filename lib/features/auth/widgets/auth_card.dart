@@ -30,7 +30,7 @@ class AuthCard extends StatelessWidget {
             Text('WALK-E', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
             SizedBox(height: 8),
             Text(
-              isLogin ? 'Войти в аккаунт' : 'Зарегистрироваться',
+              isLogin ? 'Sign in' : 'Register',
               style: TextStyle(color: AppColors.dark),
             ),
             SizedBox(height: 16),
@@ -43,7 +43,7 @@ class AuthCard extends StatelessWidget {
             SizedBox(height: 8),
             TextField(
               decoration: InputDecoration(
-                  labelText: 'Пароль',
+                  labelText: 'Password',
                   prefixIcon: Icon(Icons.lock)
               ),
               obscureText: true,
@@ -56,15 +56,15 @@ class AuthCard extends StatelessWidget {
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
               ),
               onPressed: onSubmit,
-              child: Text(isLogin ? 'Войти' : 'Зарегистрироваться'),
+              child: Text(isLogin ? 'Sign in' : 'Register'),
             ),
             SizedBox(height: 8),
             TextButton(
               onPressed: onToggleMode,
               child: Text(
                   isLogin
-                      ? 'Нет аккаунта? Зарегистрироваться'
-                      : 'Уже есть аккаунт? Войти'
+                      ? 'No account? Sign up'
+                      : 'Already have an account? Sign in'
               ),
             )
           ],

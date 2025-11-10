@@ -37,7 +37,7 @@ class _AuthGateScreenState extends State<AuthGateScreen> {
                       Text('WALK-E', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                       SizedBox(height: 8),
                       Text(
-                        showLogin ? 'Sign in to your account' : 'Register',
+                        showLogin ? 'Sign in' : 'Register',
                         style: TextStyle(color: AppColors.dark),
                       ),
                       SizedBox(height: 16),
