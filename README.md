@@ -33,8 +33,9 @@ Project is built with:
 - **Dart** — main programming language  
 - **Material Design 3** — for consistent interface and animations  
 - **Custom Theming System** — `AppColors` and gradient backgrounds  
-- **Clean Architecture** — separated core / feature modules  
-## 🚀 Future Plans
+- **Clean Architecture** — separated core / feature modules
+    
+## Future Plans
 
 - [ ] Firebase Authentication  
 - [ ] Cloud Firestore integration  
