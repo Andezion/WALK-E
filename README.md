@@ -2,7 +2,7 @@
 
 A smart walking companion that rewards your outdoor activity and connects people through movement, creativity, and eco-conscious living.
 
-![Screenshot 1](photos/photo1.png) 
+![Screenshot 1](photos/image1.png) 
 
 ---
 
