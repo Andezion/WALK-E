@@ -12,9 +12,9 @@ class QuickStatsCard extends StatelessWidget {
         padding: EdgeInsets.all(12),
         child: Row(
           children: [
-            _smallStat('Стрик', '5', Icons.local_fire_department),
-            _smallStat('Рекорд', '10 км', Icons.timeline),
-            _smallStat('Награды', '3', Icons.emoji_events),
+            _smallStat('Streak', '5', Icons.local_fire_department),
+            _smallStat('Record', '10 km', Icons.timeline),
+            _smallStat('Rewards', '3', Icons.emoji_events),
           ],
         ),
       ),

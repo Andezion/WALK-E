@@ -55,7 +55,7 @@ class DailyTaskCard extends StatelessWidget {
 
   void _remindLater(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Reminder after 1 hour (только UI)'))
+        SnackBar(content: Text('Reminder after 1 hour (only UI)'))
     );
   }
 }

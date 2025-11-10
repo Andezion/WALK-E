@@ -24,36 +24,36 @@ class ProfileScreen extends StatelessWidget {
                     SizedBox(height: 20),
                     _buildStatsGrid(),
                     SizedBox(height: 20),
-                    _buildSectionTitle('Настройки', Icons.tune),
+                    _buildSectionTitle('Settings', Icons.tune),
                     SizedBox(height: 10),
                     _buildSettingsCard(
                       context,
-                      'Кастомизация',
-                      'Фоны, рамки, значки',
+                      'Customization',
+                      'Backgrounds, frames, icons',
                       Icons.palette,
                       Colors.purple,
                           () => _openCustomization(context),
                     ),
                     _buildSettingsCard(
                       context,
-                      'Устройства',
-                      'Фитнес-браслеты',
+                      'Devices',
+                      'Fitness bracelets',
                       Icons.watch,
                       Colors.blue,
                           () {},
                     ),
                     _buildSettingsCard(
                       context,
-                      'История',
-                      'Eco Points',
+                      'History',
+                      'Sprouts',
                       Icons.history,
                       Colors.green,
                           () {},
                     ),
                     _buildSettingsCard(
                       context,
-                      'Настройки',
-                      'Язык, уведомления',
+                      'Settings',
+                      'Lang, notifications',
                       Icons.settings,
                       Colors.orange,
                           () => Navigator.of(context).push(
@@ -80,7 +80,7 @@ class ProfileScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            'Профиль',
+            'Profile',
             style: TextStyle(
               color: Colors.white,
               fontSize: 28,
@@ -98,7 +98,7 @@ class ProfileScreen extends StatelessWidget {
                 Icon(Icons.star, color: Colors.amber, size: 16),
                 SizedBox(width: 5),
                 Text(
-                  'Уровень 8',
+                  'Level 8',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
@@ -149,7 +149,7 @@ class ProfileScreen extends StatelessWidget {
           ),
           SizedBox(height: 14),
           Text(
-            'Влад',
+            'Vlad',
             style: TextStyle(
               fontSize: 22,
               fontWeight: FontWeight.bold,
@@ -169,7 +169,7 @@ class ProfileScreen extends StatelessWidget {
                 Icon(Icons.eco, color: Colors.green, size: 16),
                 SizedBox(width: 5),
                 Text(
-                  '1,250 Eco Points',
+                  '1,250 Sprouts',
                   style: TextStyle(
                     color: Colors.green,
                     fontWeight: FontWeight.bold,
@@ -193,10 +193,10 @@ class ProfileScreen extends StatelessWidget {
       crossAxisSpacing: 10,
       childAspectRatio: 1.5,
       children: [
-        _buildStatCard('Шаги', '124K', Icons.directions_walk, Colors.blue),
-        _buildStatCard('Прогулки', '48', Icons.route, Colors.purple),
-        _buildStatCard('Стрик', '5 дней', Icons.local_fire_department, Colors.orange),
-        _buildStatCard('Награды', '3', Icons.emoji_events, Colors.amber),
+        _buildStatCard('Steps', '124K', Icons.directions_walk, Colors.blue),
+        _buildStatCard('Walks', '48', Icons.route, Colors.purple),
+        _buildStatCard('Streak', '5 days', Icons.local_fire_department, Colors.orange),
+        _buildStatCard('Rewards', '3', Icons.emoji_events, Colors.amber),
       ],
     );
   }
@@ -378,7 +378,7 @@ class ProfileScreen extends StatelessWidget {
                 Icon(Icons.logout, color: Colors.red, size: 22),
                 SizedBox(width: 10),
                 Text(
-                  'Выйти из аккаунта',
+                  'Log out',
                   style: TextStyle(
                     color: Colors.red,
                     fontWeight: FontWeight.bold,
@@ -402,12 +402,12 @@ class ProfileScreen extends StatelessWidget {
       context: context,
       builder: (_) => AlertDialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        title: Text('Выйти?'),
-        content: Text('Ты уверен, что хочешь выйти из аккаунта?'),
+        title: Text('Get out?'),
+        content: Text('Are you sure you want to log out of the account?'),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: Text('Отмена', style: TextStyle(color: AppColors.dark)),
+            child: Text('Cancel', style: TextStyle(color: AppColors.dark)),
           ),
           TextButton(
             onPressed: () {
@@ -417,7 +417,7 @@ class ProfileScreen extends StatelessWidget {
               );
             },
             child: Text(
-              'Выйти',
+              'Log out',
               style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
             ),
           ),

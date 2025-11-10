@@ -23,9 +23,9 @@ class ProfileHeader extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Влад', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                    Text('Vlad', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                     SizedBox(height: 6),
-                    Text('Eco Points: 1 250', style: TextStyle(color: AppColors.dark)),
+                    Text('Sprouts: 1 250', style: TextStyle(color: AppColors.dark)),
                     SizedBox(height: 6),
                     LinearProgressIndicator(
                         value: 0.6,
