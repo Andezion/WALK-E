@@ -9,7 +9,7 @@ class DrawRouteScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text(manual ? 'Ручное рисование' : 'Шаблоны рисунков')
+          title: Text(manual ? 'Hand painting' : 'Picture templates')
       ),
       body: Center(
         child: Padding(
@@ -19,12 +19,12 @@ class DrawRouteScreen extends StatelessWidget {
             children: [
               Icon(Icons.draw, size: 64, color: AppColors.accent),
               SizedBox(height: 12),
-              Text('Здесь пользователь рисует маршрут (UI placeholder)'),
+              Text('This is where the user draws the route (UI placeholder)'),
               SizedBox(height: 12),
               ElevatedButton(
                   onPressed: () => _simulateDraw(context),
                   style: ElevatedButton.styleFrom(backgroundColor: AppColors.accent),
-                  child: Text('Сохранить маршрут')
+                  child: Text('Save route')
               ),
             ],
           ) : Column(
@@ -32,12 +32,12 @@ class DrawRouteScreen extends StatelessWidget {
             children: [
               Icon(Icons.auto_awesome, size: 64, color: AppColors.accent),
               SizedBox(height: 12),
-              Text('Выбери шаблон и адаптируй к городу'),
+              Text('Pick a template and adapt to the city'),
               SizedBox(height: 12),
               ElevatedButton(
                   onPressed: () => _simulateDraw(context),
                   style: ElevatedButton.styleFrom(backgroundColor: AppColors.accent),
-                  child: Text('Выбрать шаблон')
+                  child: Text('Select a template')
               ),
             ],
           ),
@@ -48,7 +48,7 @@ class DrawRouteScreen extends StatelessWidget {
 
   void _simulateDraw(BuildContext ctx) {
     ScaffoldMessenger.of(ctx).showSnackBar(
-        SnackBar(content: Text('Маршрут сохранён (UI only)'))
+        SnackBar(content: Text('Route preserved (UI only)'))
     );
   }
 }

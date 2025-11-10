@@ -41,7 +41,7 @@ class GalleryItem extends StatelessWidget {
                 Icon(Icons.route, color: Colors.white, size: 32),
                 SizedBox(height: 8),
                 Text(
-                    title ?? 'Рисунок ${index + 1}',
+                    title ?? 'Figure ${index + 1}',
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold

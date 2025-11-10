@@ -34,7 +34,7 @@ class _FiltersSheetState extends State<FiltersSheet> {
           ),
           SizedBox(height: 20),
           Text(
-            'Фильтры',
+            'Filters',
             style: TextStyle(
               fontSize: 22,
               fontWeight: FontWeight.bold,
@@ -51,14 +51,14 @@ class _FiltersSheetState extends State<FiltersSheet> {
               value: friends,
               onChanged: (v) => setState(() => friends = v),
               title: Text(
-                'Только друзья',
+                'Just friends',
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
                   color: AppColors.dark,
                 ),
               ),
               subtitle: Text(
-                'Показывать прогулки только от друзей',
+                'Only show walks from friends',
                 style: TextStyle(fontSize: 12),
               ),
               activeColor: AppColors.accent,
@@ -77,14 +77,14 @@ class _FiltersSheetState extends State<FiltersSheet> {
               value: accessible,
               onChanged: (v) => setState(() => accessible = v),
               title: Text(
-                'Доступные маршруты',
+                'Available routes',
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
                   color: AppColors.dark,
                 ),
               ),
               subtitle: Text(
-                'Для инвалидов/с коляской',
+                'For disabled persons/wheelchair',
                 style: TextStyle(fontSize: 12),
               ),
               activeColor: Colors.blue,
@@ -104,7 +104,7 @@ class _FiltersSheetState extends State<FiltersSheet> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Максимальное расстояние',
+                  'Maximum distance',
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
@@ -130,8 +130,8 @@ class _FiltersSheetState extends State<FiltersSheet> {
                   inactiveColor: Colors.orange.withOpacity(0.2),
                   onChanged: (v) => setState(() => distance = v),
                   labels: RangeLabels(
-                    '${distance.start.round()} км',
-                    '${distance.end.round()} км',
+                    '${distance.start.round()} km',
+                    '${distance.end.round()} km',
                   ),
                 ),
               ],
@@ -157,7 +157,7 @@ class _FiltersSheetState extends State<FiltersSheet> {
                     ),
                   ),
                   child: Text(
-                    'Сбросить',
+                    'Reset',
                     style: TextStyle(
                       color: AppColors.dark,
                       fontWeight: FontWeight.bold,
@@ -178,7 +178,7 @@ class _FiltersSheetState extends State<FiltersSheet> {
                     ),
                   ),
                   child: Text(
-                    'Применить',
+                    'Apply',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,

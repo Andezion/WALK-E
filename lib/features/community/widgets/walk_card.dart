@@ -46,7 +46,7 @@ class WalkCard extends StatelessWidget {
               SizedBox(width: 12),
               Icon(Icons.people, size: 14, color: AppColors.dark.withOpacity(0.6)),
               SizedBox(width: 4),
-              Text('$participants участн.'),
+              Text('$participants memb.'),
             ],
           ),
         ),
@@ -56,7 +56,7 @@ class WalkCard extends StatelessWidget {
               backgroundColor: AppColors.accent,
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8)
           ),
-          child: Text('Присоединиться', style: TextStyle(fontSize: 12)),
+          child: Text('Join', style: TextStyle(fontSize: 12)),
         ),
       ),
     );
