@@ -37,7 +37,7 @@ class _AuthGateScreenState extends State<AuthGateScreen> {
                       Text('WALK-E', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                       SizedBox(height: 8),
                       Text(
-                        showLogin ? 'Войти в аккаунт' : 'Зарегистрироваться',
+                        showLogin ? 'Sign in to your account' : 'Register',
                         style: TextStyle(color: AppColors.dark),
                       ),
                       SizedBox(height: 16),
@@ -46,7 +46,7 @@ class _AuthGateScreenState extends State<AuthGateScreen> {
                       ),
                       SizedBox(height: 8),
                       TextField(
-                        decoration: InputDecoration(labelText: 'Пароль', prefixIcon: Icon(Icons.lock)),
+                        decoration: InputDecoration(labelText: 'Password', prefixIcon: Icon(Icons.lock)),
                         obscureText: true,
                       ),
                       SizedBox(height: 12),
@@ -60,12 +60,12 @@ class _AuthGateScreenState extends State<AuthGateScreen> {
                           Navigator.of(context).pushReplacement(
                               MaterialPageRoute(builder: (_) => MainShell()));
                         },
-                        child: Text(showLogin ? 'Войти' : 'Зарегистрироваться'),
+                        child: Text(showLogin ? 'Sign in' : 'Register'),
                       ),
                       SizedBox(height: 8),
                       TextButton(
                         onPressed: () => setState(() => showLogin = !showLogin),
-                        child: Text(showLogin ? 'Нет аккаунта? Зарегистрироваться' : 'Уже есть аккаунт? Войти'),
+                        child: Text(showLogin ? 'Don\'t have an account? Sign up' : 'Already have an account? Sign in'),
                       )
                     ],
                   ),
