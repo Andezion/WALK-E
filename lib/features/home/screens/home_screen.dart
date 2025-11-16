@@ -1,12 +1,50 @@
 import 'package:flutter/material.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../services/step_counter_service.dart';
 import '../../rewards/screens/leaderboard_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final StepCounterService _stepService = StepCounterService();
+  int _steps = 0;
+  bool _isWalking = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _initStepCounter();
+  }
+
+  Future<void> _initStepCounter() async {
+    await _stepService.initialize();
+
+    _stepService.stepsStream.listen((steps) {
+      if (mounted) {
+        setState(() => _steps = steps);
+      }
+    });
+
+    _stepService.walkingStream.listen((walking) {
+      if (mounted) {
+        setState(() => _isWalking = walking);
+      }
+    });
+
+    setState(() => _steps = _stepService.todaySteps);
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final calories = _stepService.getCalories();
+    final distanceKm = _stepService.getDistanceKm();
+    final progress = (_steps / 10000).clamp(0.0, 1.0);
+
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(gradient: AppColors.bgGradient),
@@ -20,11 +58,13 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     _buildWelcomeSection(),
                     SizedBox(height: 20),
+                    _buildStepsCard(progress, calories, distanceKm),
+                    SizedBox(height: 20),
                     _buildStatsCards(),
                     SizedBox(height: 20),
                     _buildStartWalkButton(context),
                     SizedBox(height: 20),
-                    _buildDailyTaskCard(),
+                    _buildDailyTaskCard(progress),
                     SizedBox(height: 20),
                     _buildProgressSection(),
                     SizedBox(height: 20),
@@ -48,13 +88,37 @@ class HomeScreen extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Hello, Vlad! 👋',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
+              Row(
+                children: [
+                  Text(
+                    'Hello, Vlad! 👋',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  if (_isWalking) ...[
+                    SizedBox(width: 8),
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                      decoration: BoxDecoration(
+                        color: Colors.green.withOpacity(0.3),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(Icons.directions_walk, color: Colors.white, size: 14),
+                          SizedBox(width: 4),
+                          Text(
+                            'Walking',
+                            style: TextStyle(color: Colors.white, fontSize: 12),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ],
               ),
               SizedBox(height: 4),
               Text(
@@ -112,7 +176,7 @@ class HomeScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '1,250 Sprouts',
+                  '${1250 + (_steps * 0.1).round()} Sprouts',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -125,7 +189,7 @@ class HomeScreen extends StatelessWidget {
                     Icon(Icons.trending_up, size: 16, color: Colors.green),
                     SizedBox(width: 4),
                     Text(
-                      '+120 for today',
+                      '+${(_steps * 0.1).round()} for today',
                       style: TextStyle(
                         color: Colors.green,
                         fontWeight: FontWeight.w600,
@@ -155,6 +219,135 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  Widget _buildStepsCard(double progress, int calories, double distanceKm) {
+    return Container(
+      padding: EdgeInsets.all(24),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [AppColors.accent, AppColors.deep],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(24),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.accent.withOpacity(0.4),
+            blurRadius: 20,
+            offset: Offset(0, 10),
+          ),
+        ],
+      ),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Steps today',
+                    style: TextStyle(
+                      color: Colors.white.withOpacity(0.9),
+                      fontSize: 14,
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        '$_steps',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 48,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(width: 8),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 10),
+                        child: Text(
+                          '/ 10,000',
+                          style: TextStyle(
+                            color: Colors.white.withOpacity(0.7),
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(
+                width: 80,
+                height: 80,
+                child: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    CircularProgressIndicator(
+                      value: progress,
+                      strokeWidth: 8,
+                      backgroundColor: Colors.white.withOpacity(0.3),
+                      valueColor: AlwaysStoppedAnimation(Colors.white),
+                    ),
+                    Center(
+                      child: Text(
+                        '${(progress * 100).toInt()}%',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 20),
+          Divider(color: Colors.white.withOpacity(0.3)),
+          SizedBox(height: 16),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _buildMiniStat(Icons.local_fire_department, '$calories', 'kcal'),
+              Container(width: 1, height: 30, color: Colors.white.withOpacity(0.3)),
+              _buildMiniStat(Icons.straighten, '${distanceKm.toStringAsFixed(2)}', 'km'),
+              Container(width: 1, height: 30, color: Colors.white.withOpacity(0.3)),
+              _buildMiniStat(Icons.timer, '${(_steps / 100).round()}', 'min'),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMiniStat(IconData icon, String value, String label) {
+    return Column(
+      children: [
+        Icon(icon, color: Colors.white, size: 24),
+        SizedBox(height: 6),
+        Text(
+          value,
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Text(
+          label,
+          style: TextStyle(
+            color: Colors.white.withOpacity(0.8),
+            fontSize: 12,
+          ),
+        ),
+      ],
+    );
+  }
+
   Widget _buildStatsCards() {
     return SizedBox(
       height: 140,
@@ -162,20 +355,11 @@ class HomeScreen extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         children: [
           _buildStatCard(
-            icon: Icons.directions_walk,
-            title: 'Steps',
-            value: '4,320',
-            subtitle: 'Goal: 10,000',
-            progress: 0.432,
-            color: AppColors.accent,
-          ),
-          SizedBox(width: 12),
-          _buildStatCard(
             icon: Icons.wb_sunny,
             title: 'Outside',
-            value: '35 min',
+            value: '${(_steps / 100).round()} min',
             subtitle: 'Goal: 60 min',
-            progress: 0.583,
+            progress: ((_steps / 100) / 60).clamp(0.0, 1.0),
             color: Colors.orange,
           ),
           SizedBox(width: 12),
@@ -284,14 +468,14 @@ class HomeScreen extends StatelessWidget {
       height: 70,
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [AppColors.accent, AppColors.deep],
+          colors: [Colors.green, Colors.green.shade700],
           begin: Alignment.centerLeft,
           end: Alignment.centerRight,
         ),
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: AppColors.accent.withOpacity(0.4),
+            color: Colors.green.withOpacity(0.4),
             blurRadius: 20,
             offset: Offset(0, 10),
           ),
@@ -325,7 +509,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildDailyTaskCard() {
+  Widget _buildDailyTaskCard(double progress) {
     return Container(
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -367,7 +551,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 4),
                     Text(
-                      'Walk 20 minutes in a park',
+                      'Walk 5,000 steps',
                       style: TextStyle(
                         color: AppColors.dark.withOpacity(0.6),
                         fontSize: 14,
@@ -402,7 +586,7 @@ class HomeScreen extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: LinearProgressIndicator(
-              value: 0.4,
+              value: (_steps / 5000).clamp(0.0, 1.0),
               backgroundColor: Colors.grey.withOpacity(0.1),
               color: Colors.orange,
               minHeight: 8,
@@ -410,7 +594,7 @@ class HomeScreen extends StatelessWidget {
           ),
           SizedBox(height: 8),
           Text(
-            '40% executed',
+            '${((_steps / 5000) * 100).clamp(0, 100).toInt()}% executed',
             style: TextStyle(
               fontSize: 12,
               color: AppColors.dark.withOpacity(0.6),
@@ -447,9 +631,9 @@ class HomeScreen extends StatelessWidget {
             children: [
               _buildProgressItem('To the next level', 600, 1000, AppColors.accent),
               SizedBox(height: 16),
-              _buildProgressItem('Weekly target', 4320, 50000, Colors.green),
+              _buildProgressItem('Weekly target', _steps, 50000, Colors.green),
               SizedBox(height: 16),
-              _buildProgressItem('Monthly target', 15000, 200000, Colors.blue),
+              _buildProgressItem('Monthly target', _steps * 7, 200000, Colors.blue),
             ],
           ),
         ),
@@ -458,7 +642,7 @@ class HomeScreen extends StatelessWidget {
   }
 
   Widget _buildProgressItem(String title, int current, int total, Color color) {
-    double progress = current / total;
+    double progress = (current / total).clamp(0.0, 1.0);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
