@@ -1,16 +1,69 @@
-# hackaton
+# WALK-E 🌿
 
-A new Flutter project.
+A smart walking companion that rewards your outdoor activity and connects people through movement, creativity, and eco-conscious living.
 
-## Getting Started
+![Screenshot 1](photos/image1.png) 
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## Table of Contents
+- [General Info](#general-info)
+- [Demonstration](#demonstration)
+- [Technologies](#technologies)
+- [Future Plans](#future-plans)
+- [Setup](#setup)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## General Info
+
+**WALK-E** is an intelligent mobile application that combines wellbeing, urban mobility, and environmental awareness in one place.  
+Users earn points for walking and spending time outdoors, complete wellness challenges, plan routes or trips, create creative paths on the map, and exchange points for rewards.
+
+---
+
+## Demonstration
+
+https://github.com/user-attachments/assets/43a6aafa-e27a-4936-9b1c-e1a0ef314395
+
+*(Coming soon — app screenshots)*
+
+---
+
+## Technologies
+
+Project is built with:
+- **Flutter** — UI framework for cross-platform apps  
+- **Dart** — main programming language  
+- **Material Design 3** — for consistent interface and animations  
+- **Custom Theming System** — `AppColors` and gradient backgrounds  
+- **Clean Architecture** — separated core / feature modules
+    
+## Future Plans
+
+- [ ] Firebase Authentication  
+- [ ] Cloud Firestore integration  
+- [ ] Step tracking with Google Fit / Apple Health  
+- [ ] Reward system with achievements  
+- [ ] Social features (friends, challenges)  
+- [ ] Offline caching and local stats  
+
+---
+
+## Setup
+
+To run this project locally:
+
+```bash
+# Clone the repository
+git clone https://github.com/Andezion/WALK-E.git
+
+# Enter the project folder
+cd WALK-E
+
+# Get dependencies
+flutter pub get
+
+# Run the app
+flutter run
+```
