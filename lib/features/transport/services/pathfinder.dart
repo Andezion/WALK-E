@@ -1,7 +1,7 @@
 import 'package:latlong2/latlong.dart';
 
 class GridAStar {
-  final LatLngBounds bounds;
+  final GridBounds bounds;
   final int rows;
   final int cols;
   final Distance _dist = Distance();
@@ -35,13 +35,17 @@ class GridAStar {
         if (closed.containsKey(nKey)) continue;
 
         final tentativeG = current.g + _costBetween(current, n);
-        final existing = open.firstWhere((x) => x.r == n.r && x.c == n.c,
-            orElse: () => null);
+        final existingIndex = open.indexWhere((x) => x.r == n.r && x.c == n.c);
+        final _Node? existing =
+            existingIndex == -1 ? null : open[existingIndex];
         if (existing == null || tentativeG < existing.g) {
           n.g = tentativeG;
           n.h = _heuristic([n.r, n.c], goalIdx);
           n.parent = current;
-          if (existing == null) open.add(n);
+          if (existing == null)
+            open.add(n);
+          else
+            open[existingIndex] = n;
         }
       }
     }
@@ -115,13 +119,13 @@ class _Node {
   double get f => g + h;
 }
 
-class LatLngBounds {
+class GridBounds {
   final double north;
   final double south;
   final double west;
   final double east;
 
-  LatLngBounds(
+  GridBounds(
       {required this.north,
       required this.south,
       required this.west,

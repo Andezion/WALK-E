@@ -319,15 +319,14 @@ class _TransportScreenState extends State<TransportScreen> {
                     point: routeStart!,
                     width: 32,
                     height: 32,
-                    builder: (ctx) =>
-                        Icon(Icons.my_location, color: Colors.green),
+                    child: Icon(Icons.my_location, color: Colors.green),
                   ),
                 if (routeEnd != null)
                   Marker(
                     point: routeEnd!,
                     width: 32,
                     height: 32,
-                    builder: (ctx) => Icon(Icons.flag, color: Colors.red),
+                    child: Icon(Icons.flag, color: Colors.red),
                   ),
               ],
             ),
@@ -344,9 +343,9 @@ class _TransportScreenState extends State<TransportScreen> {
         routePoints = [];
       } else if (routeEnd == null) {
         routeEnd = p;
-        // compute bounds around center with margin
+
         final margin = 0.06;
-        final bounds = LatLngBounds(
+        final bounds = GridBounds(
           north: centerLocation.latitude + margin,
           south: centerLocation.latitude - margin,
           west: centerLocation.longitude - margin,
