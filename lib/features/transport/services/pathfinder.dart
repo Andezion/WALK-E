@@ -113,8 +113,7 @@ class _Node {
   double h;
   _Node? parent;
 
-  _Node(this.r, this.c,
-      {this.g = double.infinity, this.h = double.infinity, this.parent});
+  _Node(this.r, this.c, {this.g = double.infinity, this.h = double.infinity});
 
   double get f => g + h;
 }
