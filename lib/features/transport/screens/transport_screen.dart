@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import '../../../core/theme/app_colors.dart';
+import '../services/pathfinder.dart';
 import '../widgets/scooter_list_item.dart';
 import 'report_problem_screen.dart';
 
@@ -21,6 +22,9 @@ class _TransportScreenState extends State<TransportScreen> {
     ScooterLocation(LatLng(51.7610, 19.4580), 70, 'Scooter #3'),
     ScooterLocation(LatLng(51.7590, 19.4540), 85, 'Scooter #4'),
   ];
+  LatLng? routeStart;
+  LatLng? routeEnd;
+  List<LatLng> routePoints = [];
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +45,8 @@ class _TransportScreenState extends State<TransportScreen> {
                     SizedBox(height: 12),
                     _buildMap(),
                     SizedBox(height: 24),
-                    _buildSectionTitle('Transport nearby', Icons.electric_scooter),
+                    _buildSectionTitle(
+                        'Transport nearby', Icons.electric_scooter),
                     SizedBox(height: 12),
                     ...List.generate(4, (i) => _buildScooterCard(context, i)),
                   ],
@@ -136,7 +141,8 @@ class _TransportScreenState extends State<TransportScreen> {
                   color: AppColors.accent.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: Icon(Icons.directions, color: AppColors.accent, size: 24),
+                child:
+                    Icon(Icons.directions, color: AppColors.accent, size: 24),
               ),
               SizedBox(width: 12),
               Text(
@@ -246,12 +252,22 @@ class _TransportScreenState extends State<TransportScreen> {
             initialZoom: 14.0,
             minZoom: 10.0,
             maxZoom: 18.0,
+            onTap: (tapPosition, latlng) {
+              _onMapTap(latlng);
+            },
           ),
           children: [
             TileLayer(
               urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
               userAgentPackageName: 'com.example.walke',
             ),
+            if (routePoints.isNotEmpty)
+              PolylineLayer(
+                polylines: [
+                  Polyline(
+                      points: routePoints, color: Colors.blue, strokeWidth: 4),
+                ],
+              ),
             MarkerLayer(
               markers: [
                 Marker(
@@ -275,34 +291,76 @@ class _TransportScreenState extends State<TransportScreen> {
                   ),
                 ),
                 ...scooters.map((scooter) => Marker(
-                  point: scooter.location,
-                  width: 40,
-                  height: 40,
-                  child: GestureDetector(
-                    onTap: () => _showScooterPopup(context, scooter),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: AppColors.accent,
-                        shape: BoxShape.circle,
-                        border: Border.all(color: Colors.white, width: 2),
-                        boxShadow: [
-                          BoxShadow(
-                            color: AppColors.accent.withOpacity(0.5),
-                            blurRadius: 8,
-                            spreadRadius: 1,
+                      point: scooter.location,
+                      width: 40,
+                      height: 40,
+                      child: GestureDetector(
+                        onTap: () => _showScooterPopup(context, scooter),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: AppColors.accent,
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.white, width: 2),
+                            boxShadow: [
+                              BoxShadow(
+                                color: AppColors.accent.withOpacity(0.5),
+                                blurRadius: 8,
+                                spreadRadius: 1,
+                              ),
+                            ],
                           ),
-                        ],
+                          child: Icon(Icons.electric_scooter,
+                              color: Colors.white, size: 20),
+                        ),
                       ),
-                      child: Icon(Icons.electric_scooter, color: Colors.white, size: 20),
-                    ),
+                    )),
+                if (routeStart != null)
+                  Marker(
+                    point: routeStart!,
+                    width: 32,
+                    height: 32,
+                    builder: (ctx) =>
+                        Icon(Icons.my_location, color: Colors.green),
                   ),
-                )),
+                if (routeEnd != null)
+                  Marker(
+                    point: routeEnd!,
+                    width: 32,
+                    height: 32,
+                    builder: (ctx) => Icon(Icons.flag, color: Colors.red),
+                  ),
               ],
             ),
           ],
         ),
       ),
     );
+  }
+
+  void _onMapTap(LatLng p) {
+    setState(() {
+      if (routeStart == null) {
+        routeStart = p;
+        routePoints = [];
+      } else if (routeEnd == null) {
+        routeEnd = p;
+        // compute bounds around center with margin
+        final margin = 0.06;
+        final bounds = LatLngBounds(
+          north: centerLocation.latitude + margin,
+          south: centerLocation.latitude - margin,
+          west: centerLocation.longitude - margin,
+          east: centerLocation.longitude + margin,
+        );
+        final finder = GridAStar(bounds, rows: 100, cols: 100);
+        routePoints = finder.findPath(routeStart!, routeEnd!);
+      } else {
+        // reset
+        routeStart = p;
+        routeEnd = null;
+        routePoints = [];
+      }
+    });
   }
 
   Widget _buildScooterCard(BuildContext context, int index) {
@@ -330,7 +388,8 @@ class _TransportScreenState extends State<TransportScreen> {
                 color: AppColors.accent.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(14),
               ),
-              child: Icon(Icons.electric_scooter, color: AppColors.accent, size: 28),
+              child: Icon(Icons.electric_scooter,
+                  color: AppColors.accent, size: 28),
             ),
             SizedBox(width: 16),
             Expanded(
@@ -455,11 +514,13 @@ class _TransportScreenState extends State<TransportScreen> {
   }
 
   void _reportProblem(BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (_) => ReportProblemScreen()));
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (_) => ReportProblemScreen()));
   }
 
   void _openScooter(BuildContext context, int i) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (_) => ScooterDetailScreen(index: i)));
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (_) => ScooterDetailScreen(index: i)));
   }
 
   void _buildRoute(BuildContext context) {
@@ -491,7 +552,8 @@ class _TransportScreenState extends State<TransportScreen> {
             onPressed: () => Navigator.pop(context),
             child: Text(
               'Close',
-              style: TextStyle(color: AppColors.accent, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  color: AppColors.accent, fontWeight: FontWeight.bold),
             ),
           ),
         ],
